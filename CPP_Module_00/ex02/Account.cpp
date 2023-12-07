@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:02:21 by brolivei          #+#    #+#             */
-/*   Updated: 2023/10/20 15:06:40 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/07 11:04:38 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Account::Account(int initial_deposit) :
     std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 */
+
+// Inicializacao destas variaveis para garantir que comecam com os valores corretos em todas as instancias da classe.
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;

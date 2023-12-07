@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:18:09 by brolivei          #+#    #+#             */
-/*   Updated: 2023/10/12 11:18:36 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:56:58 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	int	x, i;
+	int	x;
 
 	x = 1;
-	i = 0;
 	if (argc == 1)
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
@@ -27,21 +26,12 @@ int	main(int argc, char **argv)
 	{
 		while (x < argc)
 		{
-			while (argv[x][i])
-			{
-				if (argv[x][i] >= 'a' && argv[x][i] <= 'z')
-					argv[x][i] -= 32;
-				i++;
-			}
-			i = 0;
+			std::string	str(argv[x]);
+			for (int i = 0; str[i]; i++)
+				str[i] = std::toupper(str[i]);
+			std::cout << str;
 			x++;
 		}
-	}
-	x = 1;
-	while (x < argc)
-	{
-		std::cout << argv[x];
-		x++;
 	}
 	std::cout << std::endl;
 	return (0);
