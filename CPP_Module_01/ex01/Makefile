@@ -6,7 +6,7 @@
 #    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 13:50:58 by brolivei          #+#    #+#              #
-#    Updated: 2023/12/07 15:54:43 by brolivei         ###   ########.fr        #
+#    Updated: 2023/12/08 11:30:40 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,3 +36,5 @@ clean:
 
 fclean: clean
 			rm -rf $(MOAR_BRAINZ)
+
+re: fclean all

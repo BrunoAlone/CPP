@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:59:29 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/07 15:41:49 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:46:39 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class	Zombie
 		std::string	name;
 	public:
 		Zombie();
-		Zombie(std::string input_name);
 		~Zombie();
+		void	setNameZombie(std::string input_name);
 		void	announce(void);
 };
 
