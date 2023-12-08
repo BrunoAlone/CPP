@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:02:21 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/07 11:04:38 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:06:00 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,23 @@ bool	Account::makeWithdrawal(int withdrawal)
 	}
 }
 
+/*
+		strftime:
+
+			Esta funcao formata a hora retornada por "time(0)".
+
+			O primeiro parametro "timestamp" e a string onde sera colocada a formatacao
+		e o segundo parametro o tamanho maximo dessa string.
+
+			O terceiro parametro dite como queremos a formatacao.
+
+			A funcao localtime converte o resultado dado por time(0) em uma estrutura
+		tm baseada na zona.
+*/
+
 void	Account::_displayTimestamp(void)
 {
-	std::time_t	time = std::time(0); // Get current time
+	std::time_t	time = std::time(0); // Get current time in long
 	char	timestamp[20];
 
 	std::strftime(timestamp, sizeof(timestamp), "[%Y%m%d_%H%M%S] ", std::localtime(&time));
