@@ -6,7 +6,7 @@
 #    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 16:35:15 by brolivei          #+#    #+#              #
-#    Updated: 2023/12/11 16:42:27 by brolivei         ###   ########.fr        #
+#    Updated: 2023/12/12 13:35:02 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 UN_VIOLENCE = un_violence
 
-SRCS_UN_VIOLENCE = main.cpp
+SRCS_UN_VIOLENCE = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 OBJS_UN_VIOLENCE = $(patsubst %.cpp,obj/%.o,$(SRCS_UN_VIOLENCE))
 
