@@ -5,34 +5,34 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bruno <bruno@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/12 14:08:53 by brolivei          #+#    #+#              #
-#    Updated: 2023/12/15 11:54:11 by bruno            ###   ########.fr        #
+#    Created: 2023/12/15 11:51:51 by bruno             #+#    #+#              #
+#    Updated: 2023/12/15 11:58:56 by bruno            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 cc = C++
 CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SED_IS_FOR_LOSERS = sed_is_for_losers
+HARL = harl
 
-SRCS_SED_IS_FOR_LOSERS = main.cpp Replace.cpp
+SRCS_HARL =
 
-OBJS_SED_IS_FOR_LOSERS = $(SRCS_SED_IS_FOR_LOSERS:%.cpp=%.o)
+OBJS_HARL = $(SRCS_HARL:%.cpp=%.o)
 
-all: $(SED_IS_FOR_LOSERS)
+all: $(HARL)
 
-$(SED_IS_FOR_LOSERS): $(OBJS_SED_IS_FOR_LOSERS)
-
-						$(CC) $(CCFLGAS) $(OBJS_SED_IS_FOR_LOSERS) -o $(SED_IS_FOR_LOSERS) -lstdc++
+$(HARL): $(OBJS_HARL)
+			$(CC $(CCFLAGS) $(OBJS_HARL) -o $(HARL) -lstdc++
 
 %.o: %.cpp
 
 		$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-		rm -rf $(OBJS_SED_IS_FOR_LOSERS)
+		rm -rf $(OBJS_HARL)
 
 fclean: clean
-		rm -rf $(SED_IS_FOR_LOSERS)
+
+		rm -rf $(HARL)
 
 re: fclean all
