@@ -5,34 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: bruno <bruno@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/15 11:51:51 by bruno             #+#    #+#              #
-#    Updated: 2023/12/15 15:29:23 by bruno            ###   ########.fr        #
+#    Created: 2023/12/15 15:33:48 by bruno             #+#    #+#              #
+#    Updated: 2023/12/15 15:45:43 by bruno            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 cc = C++
 CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-HARL = harl
+HARL_FILTER = harlFilter
 
-SRCS_HARL = main.cpp Harl.cpp
+SRCS_HARL_FILTER = main.cpp Harl.cpp
 
-OBJS_HARL = $(SRCS_HARL:%.cpp=%.o)
+OBJS_HARL_FILTER = $(SRCS_HARL_FILTER:%.cpp=%.o)
 
-all: $(HARL)
+all: $(HARL_FILTER)
 
-$(HARL): $(OBJS_HARL)
-			$(CC) $(CCFLAGS) $(OBJS_HARL) -o $(HARL) -lstdc++
+$(HARL_FILTER): $(OBJS_HARL_FILTER)
+					$(CC) $(CCFLAGS) $(OBJS_HARL_FILTER) -o $(HARL_FILTER) -lstdc++
 
 %.o: %.cpp
 
 		$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-		rm -rf $(OBJS_HARL)
+		rm -rf $(OBJS_HARL_FILTER)
 
 fclean: clean
-
-		rm -rf $(HARL)
+		rm -rf $(HARL_FILTER)
 
 re: fclean all
