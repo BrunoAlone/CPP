@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:42:34 by bruno             #+#    #+#             */
-/*   Updated: 2023/12/15 15:43:28 by bruno            ###   ########.fr       */
+/*   Updated: 2023/12/21 11:10:28 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,26 @@
 
 #include <iostream>
 
-
+class	Harl
+{
+	private:
+		enum	LogLevel
+		{
+			DEBUG,
+			INFO,
+			WARNING,
+			ERROR
+		};
+		std::string	level[4];
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+	public:
+		Harl();
+		LogLevel	logDefine(const std::string &calledLevel);
+		void	filter(std::string calledLevel);
+		void	complain(std::string calledLevel);
+};
 
 #endif
