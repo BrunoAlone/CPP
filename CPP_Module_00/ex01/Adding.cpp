@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:11:24 by brolivei          #+#    #+#             */
-/*   Updated: 2023/10/23 14:48:46 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:43:29 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ std::string	Adding::addText(std::string msg)
 	while (1)
 	{
 		std::cout << msg;
-		std::getline(std::cin, input);
+		if(!std::getline(std::cin, input))
+			break; // This handle has to be review!
 		if (input.empty())
 			std::cout << "You didn't enter anything." << std::endl;
 		else
