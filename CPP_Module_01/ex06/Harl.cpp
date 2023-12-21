@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:42:39 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/21 11:23:49 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:39:23 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ Harl::LogLevel	Harl::logDefine(const std::string &calledLevel)
 		logLevel = Harl::WARNING;
 	else if (calledLevel == "ERROR")
 		logLevel = Harl::ERROR;
+	else
+		logLevel = Harl::NOMATCH;
 	return (logLevel);
 }
 
@@ -107,7 +109,7 @@ void	Harl::filter(std::string calledLevel)
 		Harl::complain("ERROR");
 		break;
 	default:
-		std::cout << "No match to that level.\n";
+		std::cout << "No matching level.\n";
 		break;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:41:59 by bruno             #+#    #+#             */
-/*   Updated: 2023/12/21 10:54:01 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:35:10 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	main(int argc, char **argv)
 	}
 	Harl	harl;
 
-	harl.complain(argv[1]);
+	std::string	str(argv[1]);
+	for (int i = 0; str[i]; i++)
+	{
+		str[i] = std::toupper(str[i]);
+	}
+	harl.filter(str);
 	return (0);
 }

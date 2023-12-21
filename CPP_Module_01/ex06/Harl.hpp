@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 15:42:34 by bruno             #+#    #+#             */
-/*   Updated: 2023/12/21 11:10:28 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:38:40 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class	Harl
 			DEBUG,
 			INFO,
 			WARNING,
-			ERROR
+			ERROR,
+			NOMATCH
 		};
 		std::string	level[4];
 		void	debug(void);
