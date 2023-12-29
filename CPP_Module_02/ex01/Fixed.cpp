@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:20:05 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/29 14:52:52 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/29 18:24:04 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,94 @@ int		Fixed::toInt(void) const
 	return (this->value >> _fractional);
 }
 
+/*
+			Explicação detalhada da função que se segue.
+
+		1 - Sobrecarregar o Operador de Inserção('<<'):
+
+			Isto pede para que se forneça uma implementação personalizada
+		para o operador '<<' na classe.
+
+		2 - Inserir a representação em float:
+
+			Dentro do operador '<<' sobrecarregado, converte o valor de
+		ponto fixo para a sua forma em float.
+			Insere estye valor em float no objeto de fluxo de saída passado
+		como parâmetro.
+
+		Na seguinte implementação a função "operator<<" converte o valor
+	de ponto fixo para a sua representação em float usando a função já
+	existente "toFloat()" e de seguida insere esse valor no fluxo de
+	saída fornecido (os).
+
+		std::ostream&	operator<<(std::ostream& os, const Fixed& fixed): Esta
+	implementação é padronizada para manipular este operador específico!
+	Ela segue uma convenção que tem de ser respeitada.
+
+		Então, no caso especifico da sobrecarga do operador "<<":
+
+			A função recebe sempre estes dois parâmetros:
+
+				- "std::ostream& os": Representa o objeto do fluxo de saída
+			(exemplo: std::cout, um arquívo de saída...). Tem que ser passado
+			como referência para se poder manípular o objeto em si e não uma copia.
+
+				- "const Fixed& fixed": Objeto da classe que é chamado. Deve ser
+			passado como referência constante para que garanta que não é modificado
+			no processo.
+
+				Ao usar então este operador num objeto desta classe como "std::cout << obj"
+			o compilador automaticamente mapeia para a chamada desta função de subrecarga,
+			fornecendo std::cout como o primeiro argumento e o objeto como o segundo.
+
+				ISTA SINTAXE É CONVENCIONAL E TEM DE SER RESPEITADA.
+*/
+
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed)
 {
+	// Converte o fixed-point value para float.
 	float	floatValue = fixed.toFloat();
+	//static_cast<void>(fixed);
 
+	// Inserção no fluxo de saída.
 	os << floatValue;
+	//os << "Que coisa linda";
 
 	return (os);
 }
+
+/*
+				Funções tipo "operator<simbolo>"
+
+
+		A sobrecarga de operadores permite que seja personalizado
+	um comportamento de um determinado operador em dados personalizados
+	como as classes. Ou seja, operador como "+, -, *, /, ==, etc" podem
+	ser usados como objetos da classe de maneira personalizada.
+
+		Quando se sobrecarrega um operador estamos basicamente a fornacer
+	uma implementação especial para esse operador nos objetos da nossa
+	classe. Para isso existe então esta função especial "operator".
+
+		Na função acima temos que:
+
+			- "operator<<" é a função que sobrecarga o operador de inserção ('<<').
+
+			- "std::ostream&" é o tipo de retorno, indica que esta função retorna
+		uma referência para um objeto de fluxo de saída ('std::ostream').
+
+			- "os" é o objeto de fluxo de saída passado como parâmetro.
+
+			- "const Fixed& fixed" é o objeto da classe passado como parâmetro.
+
+		Esta função permite então que usemos esse operador para objetos desta classe
+	em contexto de saída como "std::cout << objectFromThisClass".
+
+
+		De uma forma geral, sempre que criamos uma função do tipo "operator<simbolo>"
+	estámos a indicar como os objetos desta classe devem ser tratados perante
+	essas operações.
+
+		É uma ferramenta poderosa do C++. Por exemplo, usando "operato=="
+	permite definir como é dois objetos são comparados por igualdade!!!
+*/

@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:15:25 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/29 14:52:01 by brolivei         ###   ########.fr       */
+/*   Updated: 2023/12/29 17:37:39 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,26 @@
 
 #include <iostream>
 #include <cmath>
+
+/*
+			No ex01 é pedido que adicionemos as seguintes funções membro:
+
+				- Constructor que recebe um const int como parametro e converte
+			o seu valor para o seu correspondente fixed-point.
+
+				- Constructor que recebe um const float como parametro e converte
+			o seu valor para o seu correspondente fixed-point.
+
+				- Uma função membro que converte e retorna o valor do fixed-point
+			para o valor floating-point.
+
+				- Uma função membro que converte e retorna o valor do fixed-point
+			para int.
+
+			É também pedido que seja adicionada uma função no ficheiro da classe
+		que sobrecarregue o operador de inserção (<<). Essa sobrecarga deverá
+		inserir a representação em float do numéro de ponto-fixo.
+*/
 
 class Fixed
 {
