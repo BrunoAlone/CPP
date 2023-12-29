@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 11:05:33 by bruno             #+#    #+#             */
-/*   Updated: 2023/12/29 13:28:43 by brolivei         ###   ########.fr       */
+/*   Created: 2023/12/29 13:20:05 by brolivei          #+#    #+#             */
+/*   Updated: 2023/12/29 14:52:52 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called\n";
 	this->value = other.getRawBits();
+}
+
+Fixed::Fixed(const int x)
+{
+	std::cout << "Converting int to fixed-point value\n";
+	this->value = x << _fractional;
+}
+
+Fixed::Fixed(const float y)
+{
+	std::cout << "Converting float to fixed-point value\n";
+	this->value = static_cast<int>(roundf(y * (1 << _fractional)));
 }
 
 Fixed	&Fixed::operator=(const Fixed &other)
@@ -49,4 +61,23 @@ void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called\n";
 	this->value = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return (static_cast<float>(this->value) / (1 << _fractional));
+}
+
+int		Fixed::toInt(void) const
+{
+	return (this->value >> _fractional);
+}
+
+std::ostream&	operator<<(std::ostream& os, const Fixed& fixed)
+{
+	float	floatValue = fixed.toFloat();
+
+	os << floatValue;
+
+	return (os);
 }
