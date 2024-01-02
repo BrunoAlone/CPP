@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 14:27:56 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/12 16:28:57 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/02 13:52:55 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ std::string	Replace::getS2()
 		de usar std::string::replace).
 
 			Neste função, usamos então a classe ifstream(classe que permite ler
-		de ficheiros) e usamos classe ofstream(classe que permite escrever em ficheiros).
+		de ficheiros) e usamos a classe ofstream(classe que permite escrever em ficheiros).
 
 			std::ifstream	inputF(fileName.c_str()); - Nesta linha criamos então o
 		objeto que nos irá permitir ler do ficheiro que passamos como parametro. O

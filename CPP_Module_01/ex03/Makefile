@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
+#    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 16:35:15 by brolivei          #+#    #+#              #
-#    Updated: 2023/12/12 13:35:02 by brolivei         ###   ########.fr        #
+#    Updated: 2023/12/22 12:08:20 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

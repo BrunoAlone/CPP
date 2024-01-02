@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:44:49 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/07 13:48:05 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:49:36 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 			  Para esse efeito podemos usar o operador "delete".
 */
 
-Zombie	*Zombie::newZombie(std::string name)
+Zombie*	newZombie(std::string name)
 {
 	return new Zombie(name);
 }

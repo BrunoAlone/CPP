@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 13:23:04 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/06 14:50:16 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/02 14:49:24 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ class	Zombie
 		Zombie(std::string input_name);
 		~Zombie();
 		void	announce(void);
-		static	Zombie	*newZombie(std::string name);
-		static	void	randomChump(std::string name);
 };
 
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif

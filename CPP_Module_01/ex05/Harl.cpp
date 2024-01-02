@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 12:09:42 by bruno             #+#    #+#             */
-/*   Updated: 2023/12/15 15:32:07 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/02 14:13:40 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 Harl::Harl()
 {
-	level[0] = "DEBUG";
-	level[1] = "INFO";
-	level[2] = "WARNING";
-	level[3] = "ERROR";
+	levels[0] = "DEBUG";
+	levels[1] = "INFO";
+	levels[2] = "WARNING";
+	levels[3] = "ERROR";
 }
 
 void	Harl::debug(void)
 {
+	std::cout << "[ DEBUG ]\n";
 	std::cout << "I love having extra bacon for my\
  7XL-double-cheese-triple-pickle-special-ketchup burger.\
  I really do!\n";
@@ -29,18 +30,21 @@ void	Harl::debug(void)
 
 void	Harl::info(void)
 {
+	std::cout << "[ INFO ]\n";
 	std::cout << "I cannot believe adding extra bacon costs more money. You didn't put\
 enough bacon in my burger! If you did, I wouldn't be asking for more!\n";
 }
 
 void	Harl::warning(void)
 {
+	std::cout << "[ WARNING ]\n";
 	std::cout << "I think I deserve to have some extra bacon for free. I've been coming for\
 years whereas you started working here since last month.\n";
 }
 
 void	Harl::error(void)
 {
+	std::cout << "[ ERROR ]\n";
 	std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
@@ -79,9 +83,23 @@ void	Harl::error(void)
 				- '->*': Syntax used for calling a member function through
 			a pointer to a member function.
 				- '-func[i]': Accesses the i element of the array 'func'.
+
+		Breaking the expression "void(Harl::*func[])(void) =",
+	that is the expression that declare the array of member function
+	pointers for the Harl class.
+
+		What each part does:
+
+			- 'void': This specifies the return type of the member
+		functions in the array.
+
+			- '(Harl::*func[])': Declares an array named func where
+		each element is a pointer to a member function of the Harl class.
+
+			- '(void)': The member fucntions take no parameters.
 */
 
-void	Harl::complain(std::string calledLevel)
+void	Harl::complain(std::string level)
 {
 	void(Harl::*func[])(void) =
 	{
@@ -93,7 +111,7 @@ void	Harl::complain(std::string calledLevel)
 
 	for (int i = 0; i < 4; i++)
 	{
-		if (level[i].compare(calledLevel) == 0)
+		if (levels[i].compare(level) == 0)
 		{
 			(this->*func[i])();
 			return ;

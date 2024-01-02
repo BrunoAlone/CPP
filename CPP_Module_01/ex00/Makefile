@@ -6,7 +6,7 @@
 #    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 11:51:02 by brolivei          #+#    #+#              #
-#    Updated: 2023/12/07 13:47:00 by brolivei         ###   ########.fr        #
+#    Updated: 2024/01/02 14:45:10 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,3 +36,5 @@ clean:
 
 fclean: clean
 			rm -rf $(BRAIIINNNZZZ)
+
+re: fclean all

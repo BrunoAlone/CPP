@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:07:35 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/12 13:20:42 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/02 12:29:21 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Weapon::Weapon(std::string weaponName)
 
 const std::string	&Weapon::getType()
 {
-	return (type);
+	return (type); // In c++, returning "type" already return the reference
 }
 
 void	Weapon::setType(std::string newType)
