@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:53:44 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/08 16:01:44 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:53:13 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Fixed
 		Fixed(const float y);
 
 		// Operator
-		Fixed	&operator=(const Fixed &other);
+		Fixed	&operator=(const Fixed& other);
 
 		// Destructor
 		~Fixed();
