@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:20:05 by brolivei          #+#    #+#             */
-/*   Updated: 2023/12/29 18:24:04 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:44:53 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,43 @@ Fixed::Fixed(const Fixed &other)
 	this->value = other.getRawBits();
 }
 
+/*
+		Queremos então converter o x para o fixed-point number
+	com 8 bits reservados para o número decimal.
+
+		Então, teremos que entroduzir, esses 8 bits a partir do
+	LSB (LOWEST SIGNIFICANT BIT).
+
+		Imaginemos o número 2 (dois):
+
+			INT	x = 2; Em binário (10);
+
+			Em fixed point com 8 bits decimais: 10'.'00000000
+
+		Do lado direito do ponto temos a parte inteira '10' que é o
+	nosso 2. E do lado esquerdo temos a parte decimal '00000000'
+	que são 8 bits, a zero.
+*/
+
 Fixed::Fixed(const int x)
 {
 	std::cout << "Converting int to fixed-point value\n";
 	this->value = x << _fractional;
+	// Equivalente: this->value = x * 256;
+	//std::cout << "Depois da conversão: " << value << std::endl;
 }
+
+/*
+		Aqui a mesma coisa mas convertendo para um int, pois queremos
+	guardar na variavel value.
+*/
 
 Fixed::Fixed(const float y)
 {
 	std::cout << "Converting float to fixed-point value\n";
 	this->value = static_cast<int>(roundf(y * (1 << _fractional)));
+	//Equivalent: this->value = static_cast<int>(roundf(y * 256));
+	//std::cout << "Depois da conversão: " << value << std::endl;
 }
 
 Fixed	&Fixed::operator=(const Fixed &other)
@@ -62,6 +89,12 @@ void	Fixed::setRawBits(int const raw)
 	std::cout << "setRawBits member function called\n";
 	this->value = raw;
 }
+
+/*
+		Depois para converter novamente para um INT ou FLOAT,
+	fazemos o inverso, ao inves de multiplicar por 2⁸, dividimos
+	por 2⁸!!!!!
+*/
 
 float	Fixed::toFloat(void) const
 {

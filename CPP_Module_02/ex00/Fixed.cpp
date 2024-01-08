@@ -6,11 +6,20 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 11:05:33 by bruno             #+#    #+#             */
-/*   Updated: 2023/12/29 13:28:43 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:46:49 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+/*
+				Fixed::Fixed()
+
+
+		Este será o nosso "contructor".
+
+		Como é pedido no exercício inicializa a variavél "value" a 0.
+*/
 
 Fixed::Fixed()
 {
@@ -18,12 +27,36 @@ Fixed::Fixed()
 	this->value = 0;
 }
 
+/*
+
+				Fixed::Fixed(const Fixed &other)
+
+		Aqui temos o nosso "copy constructor".
+
+		A sua sintax é: ClassName(const ClassName& other);
+
+		"other" é o objeto que queremos copiar, e o "copy constructor"
+	é responsável por criar o novo objeto que será uma copia do "other".
+
+*/
+
 Fixed::Fixed(const Fixed &other)
 {
 	std::cout << "Copy constructor called\n";
 	this->value = other.getRawBits();
 }
 
+/*
+					Fixed	&Fixed::operator=(const Fixed &other)
+
+			Aqui temos o nosso "Copy assignment Operator"
+
+			Retorna uma referencia para o objeto modificado.
+
+			(sobreposição de operador explicado no exercício seguinte)
+*/
+
+// Fixed	&Fixed::operator=(const Fixed &other) = default; -> possivel com c++11
 Fixed	&Fixed::operator=(const Fixed &other)
 {
 	std::cout << "Copy assigment operator called\n";
