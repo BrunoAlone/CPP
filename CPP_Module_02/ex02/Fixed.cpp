@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:02:01 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/08 17:01:22 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:42:40 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,142 @@ std::ostream&	operator<<(std::ostream& os, const Fixed& fixed)
 	os << floatValue;
 
 	return (os);
+}
+
+// Overload the 6 comparison operators
+
+bool	Fixed::operator>(const Fixed& other) const
+{
+	return (this->value_ > other.value_);
+}
+
+bool	Fixed::operator<(const Fixed& other) const
+{
+	return (this->value_ < other.value_);
+}
+
+bool	Fixed::operator>=(const Fixed& other) const
+{
+	return (this->value_ >= other.value_);
+}
+
+bool	Fixed::operator<=(const Fixed& other) const
+{
+	return (this->value_ <= other.value_);
+}
+
+bool	Fixed::operator==(const Fixed& other) const
+{
+	return (this->value_ == other.value_);
+}
+
+bool	Fixed::operator!=(const Fixed& other) const
+{
+	return (this->value_ != other.value_);
+}
+
+// Overload arithmetic operators
+
+Fixed	Fixed::operator+(const Fixed& other) const
+{
+	Fixed	new_obj;
+
+	new_obj.value_ = this->value_ + other.value_;
+
+	return (new_obj);
+}
+
+Fixed	Fixed::operator-(const Fixed& other) const
+{
+	Fixed	new_obj;
+
+	new_obj.value_ = this->value_ - other.value_;
+
+	return (new_obj);
+}
+
+/*
+			Operação de multiplicação:
+
+	O uso do cast para long long é para pervenir o overflow durante a
+multiplicação!!
+
+	Opós a multiplicação é necessária a divisão por 2^fractional_ para
+ajustar o resultado, pois, numa multiplicação com numeros inteiros da
+forma comum é necessário esse ajuste.
+
+	Exemplo:
+
+		a * b = (a.fractional * b.fractional) * 2¹⁶
+
+		Com a multiplicação são duplicados os bits para a parte
+	decimal, entao é necessario o shifting para voltar ao normal.
+*/
+
+Fixed	Fixed::operator*(const Fixed& other) const
+{
+	Fixed	new_obj;
+
+	new_obj.value_ = (static_cast<long long>(this->value_) * other.value_) >> _fractional;
+
+	return (new_obj);
+}
+
+Fixed	Fixed::operator/(const Fixed& other) const
+{
+	Fixed	new_obj;
+
+	new_obj.value_ = (static_cast<long long>(this->value_) << _fractional) / other.value_;
+
+	return (new_obj);
+}
+
+// Overload increment/decrement
+
+Fixed&	Fixed::operator++()
+{
+	++this->value_;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	result = *this;
+	++(*this);
+	return (result);
+}
+
+Fixed&	Fixed::operator--()
+{
+	--this->value_;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	result = *this;
+	--(*this);
+	return (result);
+}
+
+// Min and Max functions
+
+Fixed&	Fixed::min(Fixed& a, Fixed& b)
+{
+	return ((a.value_ < b.value_) ? a : b);
+}
+
+const Fixed&	Fixed::min(const Fixed& a, const Fixed& b)
+{
+	return ((a.value_ < b.value_) ? a : b);
+}
+
+Fixed&	Fixed::max(Fixed& a, Fixed& b)
+{
+	return ((a.value_ > b.value_) ? a : b);
+}
+
+const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
+{
+	return ((a.value_ > b.value_) ? a : b);
 }

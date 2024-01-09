@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 15:53:44 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/08 16:53:13 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:39:14 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Fixed
 		Fixed(const int x);
 		Fixed(const float y);
 
-		// Operator
+		// Copy assignment operator
 		Fixed	&operator=(const Fixed& other);
 
 		// Destructor
@@ -42,6 +42,34 @@ class Fixed
 		// Conversion of Fixed point to readable value
 		float	toFloat(void) const;
 		int		toInt(void) const;
+
+		// Overload the 6 comparison operators
+
+		bool	operator>(const Fixed& other) const;
+		bool	operator<(const Fixed& other) const;
+		bool	operator>=(const Fixed& other) const;
+		bool	operator<=(const Fixed& other) const;
+		bool	operator==(const Fixed& other) const;
+		bool	operator!=(const Fixed& other) const;
+
+		// Overload arithmetic operators
+
+		Fixed	operator+(const Fixed& other) const;
+		Fixed	operator-(const Fixed& other) const;
+		Fixed	operator*(const Fixed& other) const;
+		Fixed	operator/(const Fixed& other) const;
+
+		// Overload increment/decrement
+
+		Fixed&	operator++();
+		Fixed	operator++(int);
+		Fixed&	operator--();
+		Fixed	operator--(int);
+
+		static Fixed&	min(Fixed& a, Fixed& b);
+		static const Fixed&	min(const Fixed& a, const Fixed& b);
+		static Fixed&	max(Fixed& a, Fixed& b);
+		static const Fixed&	max(const Fixed& a, const Fixed& b);
 };
 
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed);

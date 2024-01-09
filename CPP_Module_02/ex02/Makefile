@@ -6,7 +6,7 @@
 #    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/08 15:50:12 by brolivei          #+#    #+#              #
-#    Updated: 2024/01/08 15:53:29 by brolivei         ###   ########.fr        #
+#    Updated: 2024/01/09 13:44:05 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ $(FIXED): $(OBJS_FIXED)
 clean:
 			rm -rf $(OBJS_FIXED)
 
-flcean: clean
+fclean: clean
 			rm -rf $(FIXED)
 
 re: fclean all
