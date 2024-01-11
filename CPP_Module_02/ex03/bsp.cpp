@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:58:11 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/09 17:01:15 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/11 10:46:36 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ bool	checkPointInSeg(Point const a, Point const b, Point const p)
 		control++;
 	if (p.getY() >= minY && p.getY() <= maxY)
 		control++;
-
 	if ((p.getY() - a.getY()) == ((b.getY() - a.getY()) / (b.getX() - a.getX())) * (p.getX() - a.getX()))
 		control++;
-	std::cout << "Control = " << control << std::endl;
 	if (control == 3)
 		return (true);
 	return (false);
