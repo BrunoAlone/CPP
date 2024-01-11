@@ -6,11 +6,16 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:58:11 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/11 10:46:36 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/11 11:03:53 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+
+	// Area do triangulo dados os seus vartices:
+	// Dados os pontos A(x1, y1), B(x2, y2) e C(x3, y3)
+
+	// A = 1/2(mod(x1(y2-y3) + x2(y3-y1) + x3(y1-y2)))
 
 Fixed	areaCalculation(Point const a, Point const b, Point const c)
 {
@@ -21,6 +26,20 @@ Fixed	areaCalculation(Point const a, Point const b, Point const c)
 
 	return (result);
 }
+
+/*
+			Um ponto está contido em um segmento de reta se obedecer aos
+		seguintes parametro:
+
+			Existindo um segmento AB, e um ponto P(x, y):
+
+			1 º: Xp pertence ao intervalo de [Xa, Xb];
+			2 º: Yp pertence ao intervalo de [Ya, Yb];
+			3 º: Yp - Ya = ((Yb - Ya) / (Xb - Xa)) * (Xp - Xa)
+
+			Cumprindo todos estes parametros o ponto P pertence ao segmento de reta
+		AB.
+*/
 
 bool	checkPointInSeg(Point const a, Point const b, Point const p)
 {
@@ -43,10 +62,6 @@ bool	checkPointInSeg(Point const a, Point const b, Point const p)
 
 bool	bsp(Point const a, Point const b, Point const c, Point const p)
 {
-	// Area do triangulo dados os seus vartices:
-	// Dados os pontos A(x1, y1), B(x2, y2) e C(x3, y3)
-
-	// A = 1/2(mod(x1(y2-y3) + x2(y3-y1) + x3(y1-y2)))
 	Fixed	totalArea;
 	Fixed	areaPAB;
 	Fixed	areaPAC;
