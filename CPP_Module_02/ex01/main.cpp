@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 14:53:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/08 15:18:51 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:42:24 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,19 @@ int main(void)
 	std::cout << "a is " << a.toInt() << " as intenger" << std::endl;
 	std::cout << "b is " << b.toInt() << " as intenger" << std::endl;
 	std::cout << "c is " << c.toInt() << " as intenger" << std::endl;
+
+	// Fixed	test(floatValue);
+
+	// std::cout << "Original float: " << floatValue << std::endl;
+	// std::cout << "Fixed-point value: " << test.toFloat() << std::endl;std::endl;
 	std::cout << "d is " << d.toInt() << " as intenger" << std::endl;
+
+	// float	floatValue = 2.75;
+
+	// Fixed	test(floatValue);
+
+	// std::cout << "Original float: " << floatValue << std::endl;
+	// std::cout << "Fixed-point value: " << test.toFloat() << std::endl;
 
 	return (0);
 }

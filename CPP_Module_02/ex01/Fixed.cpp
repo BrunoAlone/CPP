@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 13:20:05 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/08 15:44:53 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:44:21 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Fixed::Fixed(const Fixed &other)
 
 Fixed::Fixed(const int x)
 {
-	std::cout << "Converting int to fixed-point value\n";
+	std::cout << "Int constructor called\n";
 	this->value = x << _fractional;
 	// Equivalente: this->value = x * 256;
 	//std::cout << "Depois da conversão: " << value << std::endl;
@@ -57,7 +57,7 @@ Fixed::Fixed(const int x)
 
 Fixed::Fixed(const float y)
 {
-	std::cout << "Converting float to fixed-point value\n";
+	std::cout << "Float constructor called\n";
 	this->value = static_cast<int>(roundf(y * (1 << _fractional)));
 	//Equivalent: this->value = static_cast<int>(roundf(y * 256));
 	//std::cout << "Depois da conversão: " << value << std::endl;

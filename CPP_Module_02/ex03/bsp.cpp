@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:58:11 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/11 11:03:53 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/15 12:29:28 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ Fixed	areaCalculation(Point const a, Point const b, Point const c)
 
 	result = (a.getX() * (b.getY() - c.getY())) + (b.getX() * (c.getY() - a.getY()))
 	+ (c.getX() * (a.getY() - b.getY()));
+
+	result = result * Fixed(0.5f);
 
 	return (result);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:02:01 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/09 13:42:40 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:55:10 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called\n";
+	//std::cout << "Default constructor called\n";
 	this->value_ = 0;
 }
 
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << "Copy constructor called\n";
+	//std::cout << "Copy constructor called\n";
 	this->value_ = other.getRawBits();
 }
 
 Fixed::Fixed(const int x)
 {
-	std::cout << "Int constructor called\n";
+	//std::cout << "Int constructor called\n";
 	this->value_ = x << _fractional;
 }
 
 Fixed::Fixed(const float y)
 {
-	std::cout << "Float constructor called\n";
+	//std::cout << "Float constructor called\n";
 	this->value_ = static_cast<int>(roundf(y * (1 << _fractional)));
 }
 
@@ -42,7 +42,7 @@ Fixed::Fixed(const float y)
 
 Fixed	&Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assigment operator called\n";
+	//std::cout << "Copy assigment operator called\n";
 	if (this != &other)
 	{
 		this->value_ = other.getRawBits();
@@ -54,20 +54,20 @@ Fixed	&Fixed::operator=(const Fixed& other)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n";
+	//std::cout << "Destructor called\n";
 }
 
 // Get and Set
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called\n";
+	//std::cout << "getRawBits member function called\n";
 	return (this->value_);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called\n";
+	//std::cout << "setRawBits member function called\n";
 	this->value_ = raw;
 }
 
