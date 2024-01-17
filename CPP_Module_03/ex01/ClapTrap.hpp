@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:19:37 by bruno             #+#    #+#             */
-/*   Updated: 2024/01/16 14:59:44 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:23:31 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class	ClapTrap
 {
-	private:
+	protected:
 		std::string	Name_;
 		int			hitPoints_;
 		int			energyPoints_;

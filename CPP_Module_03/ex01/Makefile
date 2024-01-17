@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bruno <bruno@student.42.fr>                +#+  +:+       +#+         #
+#    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 11:12:31 by bruno             #+#    #+#              #
-#    Updated: 2024/01/11 11:18:10 by bruno            ###   ########.fr        #
+#    Updated: 2024/01/17 10:52:21 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 CLAPTRAP = claptrap
 
-SRCS_CLAPTRAP = main.cpp ClapTrap.cpp
+SRCS_CLAPTRAP = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJS_CLAPTRAP = $(SRCS_CLAPTRAP:%.cpp=%.o)
 
