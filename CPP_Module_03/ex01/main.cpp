@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/17 11:56:18 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:36:58 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main()
 	B.beRepaired(2);
 	B.takeDamage(10);
 	B.guardGate();
-	
+
+	std::cout << B;
 	return (0);
 }

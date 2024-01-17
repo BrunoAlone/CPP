@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:28:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/17 10:53:40 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:38:13 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,30 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap: destructor called\n\n";
 }
 
+// Getters
+
+std::string	ScavTrap::getName() const
+{
+	return (this->Name_);
+}
+
+int	ScavTrap::getHitPoints() const
+{
+	return (this->hitPoints_);
+}
+
+int	ScavTrap::getEnergyPoints() const
+{
+	return (this->energyPoints_);
+}
+
+int	ScavTrap::getAttackDamage() const
+{
+	return (this->attackDamage_);
+}
+
+// Methods
+
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->hitPoints_ <= 0)
@@ -88,4 +112,15 @@ void	ScavTrap::guardGate()
 		return ;
 	}
 	std::cout << "ScavTrap " << this->Name_ << " is now in Gate keeper mode!!!\n\n";
+}
+
+std::ostream&	operator<<(std::ostream& os, const ScavTrap& obj)
+{
+	os << std::endl << "Information about " << obj.getName() << ":" << std::endl;
+	os << "ScavTrap Name: " << obj.getName() << std::endl;
+	os << "ScavTrap Hit Points: " << obj.getHitPoints() << std::endl;
+	os << "ScavTrap Energy Points: " << obj.getEnergyPoints() << std::endl;
+	os << "ScavTrap Attack damage: " << obj.getAttackDamage() << std::endl << std::endl;
+
+	return (os);
 }

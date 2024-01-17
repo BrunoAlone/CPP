@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:19:37 by bruno             #+#    #+#             */
-/*   Updated: 2024/01/17 10:23:31 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/17 12:43:33 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ class	ClapTrap
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+
+		// Get
+		std::string	getName() const;
+		int	getHitPoints() const;
+		int	getEnergyPoints() const;
+		int	getAttackDamage() const;
 };
 
 #endif
