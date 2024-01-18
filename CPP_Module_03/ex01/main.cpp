@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/17 12:36:58 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/18 09:38:25 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,18 @@
 int	main()
 {
 	std::string	ClapTrapName = "Manuel";
-	// ClapTrap	A(ClapTrapName);
-
-	// A.attack("Jose");
-	// A.takeDamage(4);
-	// A.takeDamage(6);
-	// A.takeDamage(1);
-	// A.beRepaired(2);
-
 	std::string	ScavTrapName = "Carlos";
+
 	ScavTrap	B(ScavTrapName);
+	//ClapTrap	A(ClapTrapName);
 
 	B.attack("Serafim");
+	//A.attack("Serafim");
 	B.beRepaired(2);
 	B.takeDamage(10);
 	B.guardGate();
 
 	std::cout << B;
+	//std::cout << A;
 	return (0);
 }

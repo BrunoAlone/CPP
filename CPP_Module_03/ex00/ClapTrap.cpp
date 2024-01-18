@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:47:45 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/16 14:59:38 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:19:11 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap()
 	Name_ = "Random_name";
 	hitPoints_ = 10;
 	energyPoints_ = 10;
-	attackDamage_ = 10;
+	attackDamage_ = 0;
 }
 
 // Constructor that receives a name
@@ -31,7 +31,7 @@ ClapTrap::ClapTrap(std::string& name)
 	Name_ = name;
 	hitPoints_ = 10;
 	energyPoints_ = 10;
-	attackDamage_ = 10;
+	attackDamage_ = 0;
 }
 
 // Copy constructor

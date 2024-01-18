@@ -6,25 +6,34 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 09:25:07 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/18 11:13:23 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main()
 {
-	std::string	name = "Manuel";
-	ClapTrap	A(name);
-	ClapTrap	B;
+	std::string	ClapTrapName = "Manuel";
+	std::string	ScavTrapName = "Carlos";
 
-	A.attack("Jose");
-	A.takeDamage(4);
-	A.takeDamage(6);
-	A.takeDamage(1);
-	A.beRepaired(2);
+	ScavTrap	B(ScavTrapName);
+	FragTrap	frag(ClapTrapName);
+	//ClapTrap	A(ClapTrapName);
 
-	B.attack("Rui");
 
+	B.attack("Serafim");
+	frag.highFiveGuys();
+	//A.attack("Serafim");
+	B.beRepaired(2);
+	B.takeDamage(10);
+	B.guardGate();
+	frag.attack("Carlos");
+
+	std::cout << B;
+	std::cout << frag;
+	//std::cout << A;
 	return (0);
 }
