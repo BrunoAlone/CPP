@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:00:07 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 11:12:32 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:00:43 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ FragTrap::FragTrap(const std::string& name)
 	this->attackDamage_ = 30;
 }
 
-FragTrap::FragTrap(const FragTrap& other)
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap()
 {
 	std::cout << "FragTrap: Copy constructor called\n\n";
 	this->Name_ = other.Name_;

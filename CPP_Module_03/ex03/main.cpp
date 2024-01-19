@@ -3,37 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 11:13:23 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:56:38 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main()
 {
-	std::string	ClapTrapName = "Manuel";
-	std::string	ScavTrapName = "Carlos";
+	DiamondTrap	test;
 
-	ScavTrap	B(ScavTrapName);
-	FragTrap	frag(ClapTrapName);
-	//ClapTrap	A(ClapTrapName);
-
-
-	B.attack("Serafim");
-	frag.highFiveGuys();
-	//A.attack("Serafim");
-	B.beRepaired(2);
-	B.takeDamage(10);
-	B.guardGate();
-	frag.attack("Carlos");
-
-	std::cout << B;
-	std::cout << frag;
-	//std::cout << A;
+	test.whoAmI();
+	
 	return (0);
 }

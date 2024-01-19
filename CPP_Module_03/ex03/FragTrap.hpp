@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:54:58 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 11:09:21 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:33:42 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class	FragTrap : public ClapTrap
+class	FragTrap : public virtual ClapTrap
 {
 	public:
 		FragTrap(); // Default constructor

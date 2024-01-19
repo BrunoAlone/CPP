@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:28:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 09:42:37 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:00:15 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ScavTrap::ScavTrap(std::string& name)
 	attackDamage_ = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &other)
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap()
 {
 	std::cout << "ScavTrap: copy constructor called\n\n";
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
+#    By: bruno <bruno@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 11:12:31 by bruno             #+#    #+#              #
-#    Updated: 2024/01/18 11:33:23 by brolivei         ###   ########.fr        #
+#    Updated: 2024/01/19 17:58:55 by bruno            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,4 +31,4 @@ clean:
 			rm -rf $(OBJS_CLAPTRAP)
 fclean: clean
 			rm -rf $(CLAPTRAP)
-re: fcelan all
+re: fclean all

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:41 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 09:51:08 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/19 15:33:56 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 	sao limpos antes da classe base ser destruida.
 */
 
-class	ScavTrap : public ClapTrap
+class	ScavTrap : public virtual ClapTrap
 {
 	public:
 		ScavTrap();
