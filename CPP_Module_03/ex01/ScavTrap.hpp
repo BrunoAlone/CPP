@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:41 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 09:51:08 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:51:23 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /*
 		A ideia deste exercicio e criar uma classe que herda metodos e atributos
 	de uma outra classe. No caso a classe ScavTrap herda metodos e atributos da
-	classe ClaoTrap.
+	classe ClapTrap.
 
 		A sintax e esta: "class	ScavTrap : public ClapTrap" ao cria a classe.
 

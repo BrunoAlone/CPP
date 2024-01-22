@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 11:19:37 by bruno             #+#    #+#             */
-/*   Updated: 2024/01/16 14:59:44 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:32:44 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,27 @@
 #define CLAPTRAP_HPP
 
 #include <iostream>
+
+/*
+			Esta classe tem os parametros essencias de uma classe
+		escita na forma ortodoxa.
+
+			- Default constructor
+			- Copy constructor
+			- Copy assignment operator
+			- Default destructor
+
+			A classe tem tambem um constructor que recebe um string
+		que sera o nome da ClapTrap como parametro.
+
+			Tem tambem tres outros metodos que sao:
+
+				void	attack(const std::string& target);
+				void	takeDamage(unsigned int amount);
+				void	beRepaired(unsigned int amount);
+
+			Os seu atributos privados sao os especificados no subject
+*/
 
 class	ClapTrap
 {
@@ -29,9 +50,17 @@ class	ClapTrap
 		ClapTrap	&operator=(const ClapTrap &other);
 		~ClapTrap();
 
+		// Getters
+		std::string	getName() const;
+		int	getHitPoints() const;
+		int	getEnergyPoints() const;
+		int	getAttackDamage() const;
+
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 };
+
+std::ostream&	operator<<(std::ostream& os, const ClapTrap& obj);
 
 #endif
