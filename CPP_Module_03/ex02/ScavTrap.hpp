@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:41 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 09:51:08 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:59:47 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,6 @@ class	ScavTrap : public ClapTrap
 
 		void	attack(const std::string& target);
 		void	guardGate();
-
-		// Get
-		std::string	getName() const;
-		int	getHitPoints() const;
-		int	getEnergyPoints() const;
-		int	getAttackDamage() const;
 };
 
 std::ostream&	operator<<(std::ostream& os, const ScavTrap& obj);

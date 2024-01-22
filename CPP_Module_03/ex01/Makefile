@@ -6,14 +6,14 @@
 #    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 11:12:31 by bruno             #+#    #+#              #
-#    Updated: 2024/01/17 10:52:21 by brolivei         ###   ########.fr        #
+#    Updated: 2024/01/22 14:03:10 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-CLAPTRAP = claptrap
+CLAPTRAP = ScavTrap
 
 SRCS_CLAPTRAP = main.cpp ClapTrap.cpp ScavTrap.cpp
 

@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:47:45 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 09:34:25 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:14:39 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		return ;
 	}
 	std::cout << Name_;
-	std::cout << " it received " << amount << " damage.\n\n";
+	std::cout << " received " << amount << " damage.\n\n";
 	hitPoints_ -= amount;
 }
 

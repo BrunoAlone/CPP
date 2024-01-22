@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:20:25 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/19 17:52:47 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/22 15:12:45 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+
+/*
+		Neste ultimo execicio deste modulo, teremos que criar
+	uma classe DiamondTrap, que ira herdar tanto da classe
+	FragTrap como da class ScavTrap
+*/
 
 class	DiamondTrap: public FragTrap, public ScavTrap
 {

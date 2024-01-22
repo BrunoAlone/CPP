@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:42:26 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/19 18:01:35 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/22 14:15:56 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ void	DiamondTrap::whoAmI()
 {
 	std::cout << "My name is " << this->Name_ << std::endl;
 	std::cout << "Wait... Or is it " << ClapTrap::Name_ << std::endl;
-	std::cout << "WHO AM IIIIIII!!!!!!\n\n";
+	std::cout << "WHO AM IIIIIII!?!?!?!?!?!?\n\n";
 }

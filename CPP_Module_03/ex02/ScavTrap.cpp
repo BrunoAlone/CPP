@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:28:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/18 09:42:37 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:59:39 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,28 +59,6 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &other)
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap: destructor called\n\n";
-}
-
-// Getters
-
-std::string	ScavTrap::getName() const
-{
-	return (this->Name_);
-}
-
-int	ScavTrap::getHitPoints() const
-{
-	return (this->hitPoints_);
-}
-
-int	ScavTrap::getEnergyPoints() const
-{
-	return (this->energyPoints_);
-}
-
-int	ScavTrap::getAttackDamage() const
-{
-	return (this->attackDamage_);
 }
 
 // Methods
