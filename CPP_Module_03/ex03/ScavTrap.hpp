@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:45:41 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/19 15:33:56 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/23 14:04:59 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class	ScavTrap : public virtual ClapTrap
 		std::string	getName() const;
 		int	getHitPoints() const;
 		int	getEnergyPoints() const;
-		int	getAttackDamage() const;
+		//int	getAttackDamage() const;
 };
 
 std::ostream&	operator<<(std::ostream& os, const ScavTrap& obj);

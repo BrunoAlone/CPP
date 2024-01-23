@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bruno <bruno@student.42.fr>                +#+  +:+       +#+         #
+#    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 11:12:31 by bruno             #+#    #+#              #
-#    Updated: 2024/01/19 17:58:55 by bruno            ###   ########.fr        #
+#    Updated: 2024/01/22 15:52:07 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -Wshadow -g -std=c++98
 
-CLAPTRAP = claptrap
+CLAPTRAP = DiamondTrap
 
 SRCS_CLAPTRAP = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 

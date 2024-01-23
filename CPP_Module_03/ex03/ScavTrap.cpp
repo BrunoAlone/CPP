@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:28:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/19 18:00:15 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/23 14:05:07 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ ScavTrap::ScavTrap()
 {
 	std::cout << "ScavTrap: default constructor called\n\n";
 
-	Name_ = "Random Name";
-	hitPoints_ = 100;
-	energyPoints_ = 50;
-	attackDamage_ = 20;
+	this->Name_ = "Random Name";
+	this->hitPoints_ = 100;
+	this->energyPoints_ = 50;
+	this->attackDamage_ = 20;
 }
 
 ScavTrap::ScavTrap(std::string& name)
 {
 	std::cout << "ScavTrap: constructor with name called\n\n";
 
-	Name_ = name;
-	hitPoints_ = 100;
-	energyPoints_ = 50;
-	attackDamage_ = 20;
+	this->Name_ = name;
+	this->hitPoints_ = 100;
+	this->energyPoints_ = 50;
+	this->attackDamage_ = 20;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap()
@@ -78,10 +78,10 @@ int	ScavTrap::getEnergyPoints() const
 	return (this->energyPoints_);
 }
 
-int	ScavTrap::getAttackDamage() const
-{
-	return (this->attackDamage_);
-}
+// int	ScavTrap::getAttackDamage() const
+// {
+// 	return (this->attackDamage_);
+// }
 
 // Methods
 
@@ -99,7 +99,7 @@ void	ScavTrap::attack(const std::string& target)
 	}
 	std::cout << "ScavTrap " << this->Name_;
 	std::cout << " attacks " << target;
-	std::cout << ", causing " << attackDamage_;
+	std::cout << ", causing " << this->attackDamage_;
 	std::cout << " points of damage!\n\n";
 	energyPoints_--;
 }

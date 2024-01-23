@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 10:00:07 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/19 18:00:43 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/23 13:58:42 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,11 @@ void	FragTrap::attack(const std::string& target)
 void	FragTrap::highFiveGuys(void)
 {
 	std::cout << "FragTrap " << this->Name_ << " request a positive high five!!!\n\n";
+}
+
+int	FragTrap::getAttack()
+{
+	return (this->attackDamage_);
 }
 
 std::ostream&	operator<<(std::ostream& os, const FragTrap& obj)

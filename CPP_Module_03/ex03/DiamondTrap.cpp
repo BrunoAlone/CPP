@@ -6,11 +6,31 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:42:26 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/22 14:15:56 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:08:17 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+
+/*
+		O atributos vao ser coletados das parent class.
+
+		O subject especifica:
+			- O nome passado num constructor ou dado no
+		default constructor.
+
+			- O nome da instancia ClapTrap, tera que ser
+		o parametro dado ao constructor + "_clap_name" como
+		sufixo.
+
+			- HitPoints vem da instancia de FragTrap.
+
+			- EnergyPoints da ScavTrap.
+
+			- Attack Damege da FragTrap.
+
+			- E a funcao attack() e a da classe ScavTrap
+*/
 
 DiamondTrap::DiamondTrap()
 {
@@ -22,7 +42,7 @@ DiamondTrap::DiamondTrap()
 	this->attackDamage_ = FragTrap::attackDamage_;
 }
 
-DiamondTrap::DiamondTrap(const std::string& name)
+DiamondTrap::DiamondTrap(const std::string& name) : FragTrap(), ScavTrap()
 {
 	std::cout << "DiamondTrap: Constructor with name called\n";
 	this->Name_ = name;
@@ -30,6 +50,10 @@ DiamondTrap::DiamondTrap(const std::string& name)
 	this->hitPoints_ = FragTrap::hitPoints_;
 	this->energyPoints_ = ScavTrap::energyPoints_;
 	this->attackDamage_ = FragTrap::attackDamage_;
+	std::cout << "Diamond hitPoint: " << this->hitPoints_ << std::endl;
+	std::cout << "FragTrap attackDamage: " << this->FragTrap::getAttackDamage() << std::endl;
+	std::cout << "Diamond energy: " << this->energyPoints_ << std::endl;
+
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(), FragTrap(), ScavTrap()
@@ -58,11 +82,12 @@ DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& other)
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap: Destructor called\n";
+	std::cout << "DiamondTrap: Destructor called\n\n";
 }
 
 void	DiamondTrap::attack(const std::string& target)
 {
+	std::cout << this->attackDamage_ << std::endl;
 	ScavTrap::attack(target);
 }
 
