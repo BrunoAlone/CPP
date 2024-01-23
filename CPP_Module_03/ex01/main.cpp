@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/22 13:53:32 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:57:36 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,34 @@
 
 int	main()
 {
-	std::string	ScavTrapName = "Carlos";
-	std::string	ScavTrapName2 = "Joao";
+	std::string	ClapTrapName = "Carlos";
+	std::string	ScavTrapName = "Joao";
 
-	ScavTrap	A(ScavTrapName);
-	ScavTrap	B(ScavTrapName2);
+	std::cout << "-----ClapTrap is being created-----\n\n";
+	ClapTrap	Clap(ClapTrapName);
 
+	std::cout << "\n\n-----ScavTrap is being created-----\n\n";
+	ScavTrap	Scav(ScavTrapName);
 
-	A.attack("Serafim");
-	A.beRepaired(2);
-	A.takeDamage(10);
-	A.guardGate();
+	std::cout << "\n\n-----They attack Coiso-----\n\n";
+	Clap.attack("Coiso");
+	Scav.attack("Coiso");
 
-	std::cout << A;
+	std::cout << "\n\n-----They receive damage-----\n\n";
+	Clap.takeDamage(10);
+	Scav.takeDamage(10);
 
-	B.attack("Serafim");
-	B.takeDamage(30);
-	B.beRepaired(10);
+	std::cout << "\n\n-----They reapair them selfs-----\n\n";
+	Clap.beRepaired(5);
+	Scav.beRepaired(5);
 
-	std::cout << B;
+	std::cout << "\n\n-----Scav uses is special method-----\n\n";
+	Scav.guardGate();
+
+	std::cout << "\n\n-----ClapTrap and Scav information-----\n\n";
+	std::cout << Clap;
+	std::cout << Scav;
+
+	std::cout << "\n\n-----And they are destroyed-----\n\n";
 	return (0);
 }

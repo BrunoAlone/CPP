@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/22 14:13:45 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:23:23 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main()
 	std::cout << "\n\n\n-----Scav and Frag using specials-----\n\n\n";
 	Scav.guardGate();
 	Frag.highFiveGuys();
-	
+
 	std::cout << "\n\n\n-----Ending the experience-----\n\n\n";
 
 	return (0);

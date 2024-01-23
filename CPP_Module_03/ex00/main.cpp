@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/22 12:43:53 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:42:25 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,28 @@
 int	main()
 {
 	std::string	name = "Manuel";
-	ClapTrap	A(name);
-	ClapTrap	B;
 
+	std::cout << "-----ClapTrap is being created-----\n\n";
+	ClapTrap	A(name);
+
+	std::cout << "\n\n-----ClapTrap information-----\n\n";
 	std::cout << A;
-	std::cout << B;
+
+	std::cout << "\n\n-----ClapTrap attack Jose-----\n\n";
 	A.attack("Jose");
+
+	std::cout << "\n\n-----ClapTrap take damage-----\n\n";
 	A.takeDamage(4);
+
+	std::cout << "\n\n-----ClapTrap repaired him self-----\n\n";
 	A.beRepaired(2);
 
-	B.attack("Rui");
-
+	std::cout << "\n\n-----ClapTrap take damage and die-----\n\n";
 	A.takeDamage(100);
 
+	std::cout << "\n\n-----ClapTrap try to repair him self when is already dead-----\n\n";
 	A.beRepaired(10);
+
+	std::cout << "\n\n-----ClapTrap is destroyed-----\n\n";
 	return (0);
 }

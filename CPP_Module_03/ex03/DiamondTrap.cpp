@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:42:26 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/23 14:08:17 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:41:47 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 			- E a funcao attack() e a da classe ScavTrap
 */
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << "DiamondTrap: Constructor called\n";
 	this->Name_ = "Random";
@@ -42,7 +42,7 @@ DiamondTrap::DiamondTrap()
 	this->attackDamage_ = FragTrap::attackDamage_;
 }
 
-DiamondTrap::DiamondTrap(const std::string& name) : FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << "DiamondTrap: Constructor with name called\n";
 	this->Name_ = name;
@@ -50,13 +50,12 @@ DiamondTrap::DiamondTrap(const std::string& name) : FragTrap(), ScavTrap()
 	this->hitPoints_ = FragTrap::hitPoints_;
 	this->energyPoints_ = ScavTrap::energyPoints_;
 	this->attackDamage_ = FragTrap::attackDamage_;
-	std::cout << "Diamond hitPoint: " << this->hitPoints_ << std::endl;
-	std::cout << "FragTrap attackDamage: " << this->FragTrap::getAttackDamage() << std::endl;
-	std::cout << "Diamond energy: " << this->energyPoints_ << std::endl;
-
+	std::cout << "Damage from Dia: " << this->attackDamage_ << std::endl;
+	std::cout << "Energy from Dia: " << this->energyPoints_ << std::endl;
+	std::cout << "HitPoints from Dia: " << this->hitPoints_ << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(), ScavTrap(), FragTrap()
 {
 	std::cout << "DiamondTrap: Copy constructor called\n";
 	this->Name_ = other.Name_;
@@ -87,7 +86,6 @@ DiamondTrap::~DiamondTrap()
 
 void	DiamondTrap::attack(const std::string& target)
 {
-	std::cout << this->attackDamage_ << std::endl;
 	ScavTrap::attack(target);
 }
 

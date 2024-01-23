@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/23 14:04:00 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:25:07 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,13 @@ int	main()
 	Frag.attack("Jaime");
 	Dia.attack("Jaime");
 
-	std::cout << Dia.getAttackDamage() << std::endl;
+	std::cout << "\n\n-----The DiamondTrap using specials-----\n\n";
+	Dia.guardGate();
+	Dia.highFiveGuys();
 
+	std::cout << "\n\n-----The DiamondTrap whoAmI-----\n\n";
 	Dia.whoAmI();
+	
 	std::cout << "\n\n-----The Traps are being destroyed-----\n\n";
 	return (0);
 }

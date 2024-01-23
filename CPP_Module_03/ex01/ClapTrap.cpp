@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:47:45 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/22 12:50:12 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/23 17:45:14 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (this->hitPoints_ <= 0)
 	{
-		std::cout << "ClapTrap " << Name_ << " has 0 hitPoints\n\n";
+		std::cout << "ClapTrap " << Name_ << " has " << this->hitPoints_ << " hitPoints\n\n";
 		return ;
 	}
 	if (this->energyPoints_ <= 0)
@@ -110,7 +110,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	std::cout << "Method from ClapTrap class: \n\n";
 	if (this->hitPoints_ <= 0)
 	{
-		std::cout << Name_ << " has 0 hitPoints.\n\n";
+		std::cout << "ClapTrap " << Name_ << " has " << this->hitPoints_ << " hitPoints\n\n";
 		return ;
 	}
 	std::cout << Name_;
@@ -124,7 +124,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << "Method from ClapTrap class: \n\n";
 	if (this->hitPoints_ <= 0)
 	{
-		std::cout << this->Name_ << " has 0 hitPoints.\n\n";
+		std::cout << "ClapTrap " << Name_ << " has " << this->hitPoints_ << " hitPoints\n\n";
 		return ;
 	}
 	if (this->energyPoints_ <= 0)
