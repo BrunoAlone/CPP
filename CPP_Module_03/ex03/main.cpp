@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:46:40 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/23 18:25:07 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/24 09:26:37 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,17 @@
 
 int	main()
 {
-	std::string	ClapName = "Jose";
-	std::string	ScavName = "Manuel";
-	std::string	FragName = "Ricardo";
 	std::string	DiaName = "Rogerio";
 
-	std::cout << "-----The Traps are being created-----\n\n";
-	ClapTrap	Clap(ClapName);
-	ScavTrap	Scav(ScavName);
-	FragTrap	Frag(FragName);
+	std::cout << "-----The Trap are being created-----\n\n";
 	DiamondTrap	Dia(DiaName);
 
-	std::cout << "\n\n-----The Traps Attack-----\n\n";
-	Clap.attack("Jaime");
-	Scav.attack("Jaime");
-	Frag.attack("Jaime");
+	std::cout << "\n\n-----The Trap parameters-----\n\n";
+	std::cout << "HitPoints: " << Dia.getHitPoints() << std::endl;
+	std::cout << "EnergyPoints: " << Dia.getEnergyPoints() << std::endl;
+	std::cout << "AttackDamage: " << Dia.getAttackDamage() << std::endl;
+
+	std::cout << "\n\n-----The Trap Attack-----\n\n";
 	Dia.attack("Jaime");
 
 	std::cout << "\n\n-----The DiamondTrap using specials-----\n\n";
@@ -37,7 +33,7 @@ int	main()
 
 	std::cout << "\n\n-----The DiamondTrap whoAmI-----\n\n";
 	Dia.whoAmI();
-	
-	std::cout << "\n\n-----The Traps are being destroyed-----\n\n";
+
+	std::cout << "\n\n-----The Trap are being destroyed-----\n\n";
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:54:58 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/23 19:05:25 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/24 09:27:12 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ class	FragTrap : public virtual ClapTrap
 		~FragTrap(); // Destructor
 
 		FragTrap(const std::string& name);
-
-		int	getAttack();
 
 		void	attack(const std::string &target);
 		void	highFiveGuys(void);

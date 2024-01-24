@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 10:28:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/23 14:05:07 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:19:07 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "ScavTrap: default constructor called\n\n";
+	std::cout << "ScavTrap: Default constructor called\n\n";
 
 	this->Name_ = "Random Name";
 	this->hitPoints_ = 100;
@@ -61,43 +61,21 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap: destructor called\n\n";
 }
 
-// Getters
-
-std::string	ScavTrap::getName() const
-{
-	return (this->Name_);
-}
-
-int	ScavTrap::getHitPoints() const
-{
-	return (this->hitPoints_);
-}
-
-int	ScavTrap::getEnergyPoints() const
-{
-	return (this->energyPoints_);
-}
-
-// int	ScavTrap::getAttackDamage() const
-// {
-// 	return (this->attackDamage_);
-// }
-
 // Methods
 
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->hitPoints_ <= 0)
 	{
-		std::cout << "ScavTrap " << this->Name_ << " has 0 hitPoints\n\n";
+		std::cout << this->Name_ << " has 0 hitPoints\n\n";
 		return ;
 	}
 	if (this->energyPoints_ <= 0)
 	{
-		std::cout << "ScavTrap " << this->Name_ << " has 0 energyPoints\n\n";
+		std::cout << this->Name_ << " has 0 energyPoints\n\n";
 		return ;
 	}
-	std::cout << "ScavTrap " << this->Name_;
+	std::cout << this->Name_;
 	std::cout << " attacks " << target;
 	std::cout << ", causing " << this->attackDamage_;
 	std::cout << " points of damage!\n\n";
@@ -112,6 +90,12 @@ void	ScavTrap::guardGate()
 		return ;
 	}
 	std::cout << "ScavTrap " << this->Name_ << " is now in Gate keeper mode!!!\n\n";
+}
+
+int	ScavTrap::setEnergyPoints()
+{
+	this->energyPoints_ = 50;
+	return (50);
 }
 
 std::ostream&	operator<<(std::ostream& os, const ScavTrap& obj)

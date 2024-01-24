@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 11:20:25 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/23 18:48:35 by bruno            ###   ########.fr       */
+/*   Updated: 2024/01/24 09:05:07 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 	diferentes da ClapTrap.
 */
 
-class	DiamondTrap: public virtual ScavTrap, public virtual FragTrap
+class	DiamondTrap: public ScavTrap, public FragTrap
 {
 	private:
 		std::string	Name_;
