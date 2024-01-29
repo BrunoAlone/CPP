@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:43:36 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/25 12:07:27 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:11:14 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog()
 	this->type_ = "Dog";
 }
 
-Dog::Dog(const Dog& other)
+Dog::Dog(const Dog& other) : Animal()
 {
 	std::cout << "Dog: Copy constructor called\n\n";
 	this->type_ = other.type_;

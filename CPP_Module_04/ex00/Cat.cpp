@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:52:49 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/25 12:03:34 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:10:54 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat()
 	this->type_ = "Cat";
 }
 
-Cat::Cat(const Cat& other)
+Cat::Cat(const Cat& other) : Animal()
 {
 	std::cout << "Cat: Copy constructor called\n\n";
 	this->type_ = other.type_;
