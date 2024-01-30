@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 10:39:50 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 09:29:53 by brolivei         ###   ########.fr       */
+/*   Created: 2024/01/25 10:30:17 by brolivei          #+#    #+#             */
+/*   Updated: 2024/01/30 12:33:55 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-#include "Animal.hpp"
+#include <cstdlib>
 
-class	Dog : public Animal
+int	main()
 {
-	public:
-		Dog();
-		Dog(const Dog& other);
-		Dog&	operator=(const Dog& other);
-		~Dog();
+	const Animal*	array[10];
 
-		void	makeSound() const;
-};
+	for (int i = 0; i < 10; i++)
+	{
+		if (i < 5)
+			array[i] = new Dog();
+		else
+			array[i] = new Cat();
+	}
 
-#endif
+	for (int i = 0; i < 10; i++)
+		delete array[i];
+
+
+	return (0);
+}

@@ -5,32 +5,32 @@
 #                                                     +:+ +:+         +:+      #
 #    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/25 10:25:01 by brolivei          #+#    #+#              #
-#    Updated: 2024/01/30 11:27:54 by brolivei         ###   ########.fr        #
+#    Created: 2024/01/30 12:55:13 by brolivei          #+#    #+#              #
+#    Updated: 2024/01/30 13:46:17 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-POLYMORPHISM = polymorphism
+INTERFACE = interface
 
-SRCS_POLYMORPHISM = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS_INTERFACE = main.cpp
 
-OBJS_POLYMORPHISM = $(SRCS_POLYMORPHISM:%.cpp=%.o)
+OBJS_INTERFACE = $(SRCS_INTERFACE:%.cpp=%.o)
 
-all: $(POLYMORPHISM)
+all: $(INTERFACE)
 
-$(POLYMORPHISM): $(OBJS_POLYMORPHISM)
-					$(CC) $(CCFLAGS) $(OBJS_POLYMORPHISM) -o $(POLYMORPHISM) -lstdc++
+$(INTERFACE): $(OBJS_INTERFACE)
+				$(CC) $(CCFLAGS) $(OBJS_INTERFACE) -o $(INTERFACE) -lstdc++
 
 %.o: %.cpp
 			$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-			rm -rf $(OBJS_POLYMORPHISM)
+			rm -rf $(OBJS_INTERFACE)
 
 fclean: clean
-			rm -rf $(POLYMORPHISM)
+			rm -rf $(INTERFACE)
 
 re: fclean all

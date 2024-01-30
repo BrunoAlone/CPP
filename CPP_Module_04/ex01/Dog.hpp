@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:39:50 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 09:29:53 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:19:07 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class	Dog : public Animal
 {
+	private:
+		Brain*	brain_;
 	public:
 		Dog();
 		Dog(const Dog& other);

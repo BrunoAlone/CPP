@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 10:39:50 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 09:29:53 by brolivei         ###   ########.fr       */
+/*   Created: 2024/01/30 13:55:51 by brolivei          #+#    #+#             */
+/*   Updated: 2024/01/30 13:57:11 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "AMateria.hpp"
 
-#include "Animal.hpp"
-
-class	Dog : public Animal
+AMateria::AMateria()
 {
-	public:
-		Dog();
-		Dog(const Dog& other);
-		Dog&	operator=(const Dog& other);
-		~Dog();
+	std::cout << "AMateria: Default constructor called\n\n";
+}
 
-		void	makeSound() const;
-};
 
-#endif

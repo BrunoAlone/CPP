@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 10:43:36 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 09:29:50 by brolivei         ###   ########.fr       */
+/*   Created: 2024/01/30 11:20:35 by brolivei          #+#    #+#             */
+/*   Updated: 2024/01/30 11:21:50 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog()
+WrongCat::WrongCat()
 {
-	std::cout << "Dog: Default constructor called\n\n";
-	this->type_ = "Dog";
+	std::cout << "WrongCat: Default constructor called\n\n";
+	this->type_ = "WrongCat";
 }
 
-Dog::Dog(const Dog& other) : Animal()
+WrongCat::WrongCat(const WrongCat& other) : WrongAnimal()
 {
-	std::cout << "Dog: Copy constructor called\n\n";
+	std::cout << "WrongCat: Copy constructor called\n\n";
 	this->type_ = other.type_;
 }
 
-Dog&	Dog::operator=(const Dog& other)
+WrongCat&	WrongCat::operator=(const WrongCat& other)
 {
-	std::cout << "Dog: Copy assignment operator called\n\n";
+	std::cout << "WrongCat: Copy assignment operator called\n\n";
 	if (this != &other)
 	{
 		this->type_ = other.type_;
@@ -34,12 +34,12 @@ Dog&	Dog::operator=(const Dog& other)
 	return (*this);
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "Dog: Default destructor called\n\n";
+	std::cout << "WrongCat: Destructor called\n\n";
 }
 
-void	Dog::makeSound() const
+void	WrongCat::makeSound() const
 {
-	std::cout << "The dog says Bark Bark\n\n";
+	std::cout << "The WrongCat says Miauuuu Miauuuu\n\n";
 }

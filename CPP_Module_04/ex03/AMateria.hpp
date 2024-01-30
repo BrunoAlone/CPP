@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/25 10:39:50 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 09:29:53 by brolivei         ###   ########.fr       */
+/*   Created: 2024/01/30 13:47:28 by brolivei          #+#    #+#             */
+/*   Updated: 2024/01/30 13:55:17 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-#include "Animal.hpp"
+#include <iostream>
 
-class	Dog : public Animal
+class	AMateria
 {
+	protected:
+		std::string	type;
 	public:
-		Dog();
-		Dog(const Dog& other);
-		Dog&	operator=(const Dog& other);
-		~Dog();
+		AMateria();
+		AMateria(const AMateria& other);
+		AMateria&	operator=(const AMateria& other);
+		~AMateria();
 
-		void	makeSound() const;
+
+		AMateria(std::string const & type);
+
+		// Getter
+		std::string const & getType() const;
+
+
+		virtual AMateria*	clone() const = 0;
+		virtual void		use(ICharacter& target);
 };
 
 #endif

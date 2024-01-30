@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:47 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 10:35:58 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:44:31 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ class	Animal
 		//Getter
 		std::string	getType() const;
 
-		virtual void	makeSound() const;
+		virtual void	makeSound() const = 0;
 };
 
 #endif

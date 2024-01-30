@@ -6,7 +6,7 @@
 /*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:17 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 11:36:57 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:52:22 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 int	main()
 {
-	const Animal*	meta = new Animal();
+	//const Animal	ani; Error: You cant declare an object of abstrct class
+	//const Animal*	meta = new Animal();
 	const Animal*	dog = new Dog();
 	const Animal*	cat = new Cat();
 
@@ -26,9 +27,9 @@ int	main()
 	std::cout << cat->getType() << " " << std::endl;
 	dog->makeSound();
 	cat->makeSound();
-	meta->makeSound();
+	//meta->makeSound();
 
-	delete meta;
+	//delete meta;
 	delete dog;
 	delete cat;
 
@@ -43,4 +44,3 @@ int	main()
 	delete wrongCat;
 	return (0);
 }
-
