@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:12:19 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 11:18:18 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:02:33 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

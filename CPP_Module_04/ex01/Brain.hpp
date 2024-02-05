@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 11:39:26 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 12:38:43 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:07:15 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ class	Brain
 		Brain(const Brain& other);
 		Brain&	operator=(const Brain& other);
 		~Brain();
+
+		void	ideasTell();
+
+		void	setIdeas();
 };
 
 #endif

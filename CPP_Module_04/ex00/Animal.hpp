@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:47 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 10:35:58 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 13:49:29 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,73 +19,73 @@
 			Neste exercicio e nos pedido para implementar uma
 		classe base chamada Animal.
 
-			E nos dito, que esta classe tem um atributo protected
+			É nos dito, que esta classe tem um atributo protected
 		"std::string type";
 
-			Esta classe servira como base para as classes "Dog" e
+			Esta classe servirá como base para as classes "Dog" e
 		"Cat", dando uma interface comum para estas classes derivadas.
 
-			Ela esta escritada da forma ortodoxa, como ja e comum.
-		Tem o seu constructor default que inicializara o atributo
+			Ela está escritada de forma ortodoxa, como já é comum.
+		Tem o seu constructor default que inicializará o atributo
 		"type".
 
-			Neste caso, como esta classe funcionara como uma classe
+			Neste caso, como esta classe funcionará como uma classe
 		base para outras classes derivas dela, o seu destructor tem de
-		ser virtual. Ao colocar este destructor virtual, assegura que
-		toda a memoria e libertada de forma apropriada quando sao apagados
-		objetos das classes derivadas atravez de ponteiros da classe
+		ser virtual. Ao colocar este destructor virtual, assegurámos que
+		toda a memória é libertada de forma apropriada quando sao apagados
+		objetos das classes derivadas atraves de ponteiros da classe
 		base.
 
 			O polimorfismo permite que objectos das classes
 		derivadas sejam tratadas como objetos da classe base,
-		quando sao acessadas atraves de ponteiros ou por referencia
-		da classe base. Quando temos um ponteiro ou uma referencia
+		quando são acessadas através de ponteiros ou por referência
+		da classe base. Quando temos um ponteiro ou uma referência
 		para uma classe base que aponta para um objecto de uma classe
-		derivada, C++, permite que chamemos funcoes da classe derivada
-		atraves do ponteiro da classe base.
+		derivada, C++, permite que chamemos funcões da classe derivada
+		através do ponteiro da classe base.
 
 			Porque virtual destructor???:
 
-			O problema de nao ter virtual destructor sao que, quando um
-		ponteiro para uma classe base, e usado para referenciar um objeto de
-		uma classe derivada, e a classe base nao tem um destructor virtual,
-		c++ pode levar a comportamentos inexperados durante a destruicao de
+			O problema de não ter virtual destructor é que, quando um
+		ponteiro para uma classe base é usado para referênciar um objeto de
+		uma classe derivada, e a classe base não tem um destructor virtual,
+		c++ pode levar a comportamentos inesperados durante a destruição de
 		objetos.
 			Sem um destructor virtual, quando se usa a keyword "delete" num
-		objeto atraves do ponteiro da classe base, e esse objeto for uma classe
-		derivada, apenas o destructor da classe base e chamada. Isso pode levar
-		a leaks de memoria e comportamento indefinido.
+		objeto através do ponteiro da classe base, e esse objeto for uma classe
+		derivada, apenas o destructor da classe base é chamado. Isso pode levar
+		a leaks de memória e comportamento indefinido.
 
 			Ao declarar o destructor da classe base como virtual, estamos a indicar
 		ao compilador de C++ que deve ver na tabela virtual para determinar o verdadeiro
-		tipo de objeto que esta a ser apagado.
-			Isto assegura que a ordem de destruicao e sequenciada de forma correta,
-		comecando pela classe mais derivada e ir subindo pela hierarquia.
+		tipo de objeto que está a ser apagado.
+			Isto assegura que a ordem de destruição é sequenciada de forma correta,
+		começando pela classe mais derivada e ir subindo pela hierarquia.
 
 			Com um destructor virtual na classe base, quando se apaga um objeto
-		atraves de um ponteiro da classe base, o destructor correto, da classe
-		derivada e chamado.
+		através de um ponteiro da classe base, o destructor correto, da classe
+		derivada é chamado.
 
-			Em suma, usar um destructor virtual e uma pratica mandatoria quando
-		se trabalha com polimorfismo em C++. Garante que os destructors corretos sao
-		chamados durante a destruicao de objetos, promevendo assim uma limpeza apropriada
-		e prevenindo leaks de memoria.
+			Em suma, usar um destructor virtual é uma prática mandatória quando
+		se trabalha com polimorfismo em C++. Garante que os destructors corretos são
+		chamados durante a destruição de objetos, promevendo assim uma limpeza apropriada
+		e prevenindo leaks de memória.
 
 
-			Porque a funcao makeSound() esta tambem de forma virtual?
+			Porque a função makeSound() está também de forma virtual?
 
-			Como a funcao makeSound() vai ter um comportamento variado consoante
-		a classe detivada, ou seja, cada uma vai ter a sua propria implementacao,
-		colocala como virtual, indicamos ao computador que ela sera reescrita nas
-		classes derivas, criando um vinculo dinamico a cada uma delas.
+			Como a função makeSound() vai ter um comportamento variado consoante
+		a classe derivada, ou seja, cada uma vai ter a sua propria implementação,
+		coloca-la como virtual, indica ao compilador que ela será reescrita nas
+		classes derivas, criando um vínculo dinâmico a cada uma delas.
 
-			A classe Dog, tera um vinculo a sua propria implementacao da makeSound()
+			A classe Dog, terá um vínculo à sua própria implementação da makeSound()
 		por exemplo...
 
 			Quando se usa um ponteiro para uma classe base para nos referirmos a um
-		objeto de uma classe derivada e chamarmos o metodo "makeSound",a versao correta
-		desse metodo esta vinculado ao tipo de objeto de classe derivada. Isto permite escrever
-		codigo que trabalda com objetos de diferentes tipos atraves de uma classe base
+		objeto de uma classe derivada e chamarmos o método "makeSound",a versão correta
+		desse método está vinculado ao tipo de objeto de classe derivada. Isto permite escrever
+		código que trabalha com objetos de diferentes tipos através de uma classe base
 		comum.
 */
 

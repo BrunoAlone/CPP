@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:47 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 10:35:58 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:20:30 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
