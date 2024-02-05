@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:39:50 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 12:19:07 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:24:36 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class	Dog : public Animal
 		~Dog();
 
 		void	makeSound() const;
+
+		Brain*	getBrain() const;
 };
 
 #endif

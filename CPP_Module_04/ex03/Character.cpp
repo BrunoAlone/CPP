@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:00:09 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/31 14:46:45 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:08:45 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Character::Character()
 
 Character::Character(const std::string& name)
 {
-	std::cout << "Character: Constructor with 'name' called\n\n";
+	std::cout << "Character: Constructor with \"name\" called\n\n";
 	this->Name_ = name;
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
@@ -52,7 +52,7 @@ Character&	Character::operator=(const Character& other)
 		{
 			if (this->inventory[i])
 				delete this->inventory[i];
-			this->inventory[i] = other.inventory[i];
+			this->inventory[i] = other.inventory[i]; // Gotta fix this, I think this is not deep copy....
 		}
 		for (int i = 0; i < 10; i++)
 		{
@@ -92,14 +92,19 @@ void	Character::equip(AMateria* m)
 			this->inventory[i] = m;
 			break;
 		}
+		std::cout << "The backpack is full\n\n";
 	}
 }
 
 void	Character::unequip(int idx)
 {
 	AMateria	*tmp;
+
 	if (idx < 0 || idx >= 4)
+	{
 		std::cout << "That slot doesn't exist\n\n";
+		return ;
+	}
 	else if (this->inventory[idx])
 	{
 		tmp = this->inventory[idx];
@@ -108,13 +113,17 @@ void	Character::unequip(int idx)
 			if (this->RubbishBin[i] == NULL)
 			{
 				this->RubbishBin[i] = tmp;
-				this->inventory[i] = NULL;
-				break;
+				this->inventory[idx] = NULL;
+				return ;
 			}
 			if (i == 9)
+			{
 				std::cout << "Rubbish Bin is full, can't drop it\n\n";
+				return ;
+			}
 		}
 	}
+	std::cout << "That slot is empty\n\n";
 }
 
 void	Character::use(int idx, ICharacter& target)

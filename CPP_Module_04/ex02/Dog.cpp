@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:43:36 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 12:27:37 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:25:07 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ Dog&	Dog::operator=(const Dog& other)
 	{
 		this->type_ = other.type_;
 		delete brain_;
-		this->brain_ = new Brain(*other.brain_);
+		this->brain_ = new Brain(*other.brain_); // Deep Copy: Create a new brain, not just point to the already created brain
+		// from the other object.
 	}
 	return (*this);
 }
@@ -47,4 +48,9 @@ Dog::~Dog()
 void	Dog::makeSound() const
 {
 	std::cout << "The dog says Bark Bark\n\n";
+}
+
+Brain*	Dog::getBrain() const
+{
+	return (this->brain_);
 }

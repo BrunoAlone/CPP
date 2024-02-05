@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:14:38 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/31 14:39:04 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:20:07 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice()
+Ice::Ice() : AMateria()
 {
 	std::cout << "Ice: Default constructor called\n\n";
 	this->type_ = "ice";
@@ -41,7 +41,7 @@ Ice::~Ice()
 
 AMateria*	Ice::clone() const
 {
-	Ice	*clone = new Ice(*this);
+	Ice	*clone = new Ice();
 
 	return (clone);
 }

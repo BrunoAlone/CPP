@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:55:51 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/31 11:21:36 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:00:51 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,10 @@ AMateria::AMateria(const std::string& type)
 const std::string&	AMateria::getType() const
 {
 	return (this->type_);
+}
+
+void	AMateria::use(ICharacter& target)
+{
+	(void)target;
+	return ;
 }

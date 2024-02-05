@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:17 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/30 12:52:22 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:33:48 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongCat.hpp"
-
-#include <cstdlib>
 
 int	main()
 {
@@ -38,7 +36,7 @@ int	main()
 	std::cout << "Crating the pointer WrongAnimal whith the derived class WrongCat:\n\n";
 	const WrongAnimal*	wrongCat = new WrongCat();
 
-	std::cout << cat->getType() << " " << std::endl;
+	std::cout << wrongCat->getType() << " " << std::endl;
 	wrongCat->makeSound();
 
 	delete wrongCat;

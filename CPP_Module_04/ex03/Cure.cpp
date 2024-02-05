@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:29:27 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/31 14:40:28 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:25:48 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ Cure::Cure(const Cure& other)
 Cure&	Cure::operator=(const Cure& other)
 {
 	std::cout << "Cure: Copy assignment operator called\n\n";
-	if (this != &other)
-	{
-		this->type_ = other.type_;
-	}
+	// if (this != &other)
+	// {
+	// 	this->type_ = other.type_;
+	// }
 	return (*this);
 }
 
