@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+         #
+#    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 12:55:13 by brolivei          #+#    #+#              #
-#    Updated: 2024/01/30 13:46:17 by brolivei         ###   ########.fr        #
+#    Updated: 2024/02/06 11:01:15 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 INTERFACE = interface
 
-SRCS_INTERFACE = main.cpp
+SRCS_INTERFACE = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 
 OBJS_INTERFACE = $(SRCS_INTERFACE:%.cpp=%.o)
 

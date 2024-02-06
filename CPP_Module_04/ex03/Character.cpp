@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:00:09 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/05 18:08:45 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/06 11:28:09 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ Character::Character(const Character& other)
 	std::cout << "Character: Copy constructor called\n\n";
 	this->Name_ = other.Name_;
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = other.inventory[i];
+		this->inventory[i] = other.inventory[i]->clone();
 	for (int i = 0; i < 10; i++)
-		this->RubbishBin[i] = other.RubbishBin[i];
+		this->RubbishBin[i] = other.RubbishBin[i]->clone();
 }
 
 Character&	Character::operator=(const Character& other)
@@ -52,13 +52,13 @@ Character&	Character::operator=(const Character& other)
 		{
 			if (this->inventory[i])
 				delete this->inventory[i];
-			this->inventory[i] = other.inventory[i]; // Gotta fix this, I think this is not deep copy....
+			this->inventory[i] = other.inventory[i]->clone();
 		}
 		for (int i = 0; i < 10; i++)
 		{
 			if (this->RubbishBin[i])
 				delete this->RubbishBin[i];
-			this->RubbishBin[i] = other.RubbishBin[i];
+			this->RubbishBin[i] = other.RubbishBin[i]->clone();
 		}
 	}
 	return (*this);
@@ -92,7 +92,8 @@ void	Character::equip(AMateria* m)
 			this->inventory[i] = m;
 			break;
 		}
-		std::cout << "The backpack is full\n\n";
+		else if (i == 3)
+			std::cout << "The backpack is full\n\n";
 	}
 }
 

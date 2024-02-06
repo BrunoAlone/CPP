@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:46:34 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/31 11:50:17 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/06 11:05:23 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define ICHARACTER_HPP
 
 #include "AMateria.hpp"
+
+class AMateria;
 
 class	ICharacter
 {
