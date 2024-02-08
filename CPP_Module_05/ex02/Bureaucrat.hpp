@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:30:52 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/07 14:51:18 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:37:45 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class	Form;
+class	AForm;
 
 class	Bureaucrat
 {
@@ -39,6 +39,9 @@ class	Bureaucrat
 
 		void	incrementGrade();
 		void	decrementGrade();
+
+		// Signing Form
+		void	signForm(const AForm& form) const;
 
 		// Exception classes
 		/*
