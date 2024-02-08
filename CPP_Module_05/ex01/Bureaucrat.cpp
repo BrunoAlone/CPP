@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:35:51 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/07 14:42:26 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/08 14:36:18 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade) : Name_(name)
 {
-	std::cout << "Bureaucrat: Default constructor called\n\n";
+	std::cout << "Bureaucrat: Constructor with \"Name\" and \"Grade\" called\n\n";
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)
