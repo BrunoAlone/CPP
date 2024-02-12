@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 15:21:21 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/08 16:49:52 by bruno            ###   ########.fr       */
+/*   Updated: 2024/02/12 17:14:39 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ std::string	ShrubberyCreationForm::getTarget() const
 
 void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
+	std::cout << "The AForm: " << this->getName() << std::endl;
+	std::cout << "It will be executed by: \n";
+	std::cout << executor;
+
+	if (!this->getSigned())
+		throw FormNotSignedException();
 	if (executor.getGrade() <= this->getGradeToExecute())
 	{
 		std::ofstream	outPut((this->Target_ + "_shrubbery").c_str());
@@ -78,7 +84,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 		outPut << "                                      `}" << std::endl;
 		outPut << "                                       {" << std::endl;
 		outPut.close();
-		std::cout << "\tThe tree has been made!!\n\n";
+		std::cout << "\t\033[1mThe tree has been made!!\033[0m\n\n";
 	}
 	else
 		throw GradeTooLowException();

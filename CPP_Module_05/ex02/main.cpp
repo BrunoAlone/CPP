@@ -3,32 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:37:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/08 16:39:41 by bruno            ###   ########.fr       */
+/*   Updated: 2024/02/12 17:10:47 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main()
 {
-	/*
-			If an exception is catched, in the way we are handling,
-		it does not finish the construction of the object, and so,
-		the destructor is not called after, becouse the object it wasn't
-		created.
-	*/
-	ShrubberyCreationForm	Form1;
+	Bureaucrat	John("John", 70);
+	Bureaucrat	Wilson("Wilson", 1);
 
-	Bureaucrat				Bur1("Rui", 1);
+	ShrubberyCreationForm	tree("Home");
+	RobotomyRequestForm		robot("Mom");
+	PresidentialPardonForm	pardon("Mr Something");
 
-	Form1.beSigned(Bur1);
+	std::cout << John << std::endl;
+	std::cout << Wilson << std::endl;
+	std::cout << tree << std::endl;
+	std::cout << robot << std::endl;
+	std::cout << pardon << std::endl;
 
-	Form1.execute(Bur1);
+	try
+	{
+		John.signForm(robot);
+		John.executeForm(robot);
 
+		Wilson.executeForm(robot);
+		
+		Wilson.signForm(tree);
+		Wilson.executeForm(tree);
+
+		Wilson.executeForm(pardon);
+
+		Wilson.signForm(pardon);
+		Wilson.executeForm(pardon);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << '\n';
+	}
+
+	std::cout << tree << std::endl;
+	std::cout << robot << std::endl;
+	std::cout << pardon << std::endl;
 	return (0);
 }

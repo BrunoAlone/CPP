@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:30:52 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/08 15:37:45 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:56:40 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ class	Bureaucrat
 		void	decrementGrade();
 
 		// Signing Form
-		void	signForm(const AForm& form) const;
+		void	signForm(AForm& form) const;
+
+		// Execute Form
+		void	executeForm(const AForm& form) const;
 
 		// Exception classes
 		/*

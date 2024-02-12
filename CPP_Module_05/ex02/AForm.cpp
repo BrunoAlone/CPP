@@ -87,7 +87,6 @@ void	AForm::beSigned(const Bureaucrat& person)
 	if (person.getGrade() <= this->GradeToSign_)
 	{
 		this->Signed_ = true;
-		person.signForm(*this);
 	}
 	else if (person.getGrade() > this->GradeToSign_)
 		throw GradeTooLowException();
@@ -96,12 +95,17 @@ void	AForm::beSigned(const Bureaucrat& person)
 // Exceptions classes
 const char*	AForm::GradeTooHighException::what() const throw()
 {
-	return ("Grade to High to this AForm!!\n");
+	return ("\033[1;31mGrade to High to this AForm\033[0m\n");
 }
 
 const char*	AForm::GradeTooLowException::what() const throw()
 {
-	return ("Grade to low to this AForm!!\n");
+	return ("\033[1;31mGrade to low to this AForm\033[0m\n");
+}
+
+const char*	AForm::FormNotSignedException::what() const throw()
+{
+	return ("\033[1;31mForm is not signed\033[0m\n\n");
 }
 
 // Overload of the insertion
