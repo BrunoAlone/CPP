@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 11:11:07 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/13 12:30:03 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:01:56 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,8 @@ AForm*	Intern::makeForm(std::string formName, std::string formTarget)
 		formName[i] = std::toupper(formName[i]);
 	for (int i = 0; i < 3; i++)
 	{
-		if (formName.find(formsTypes[i]))
+		if (formName.find(formsTypes[i]) != std::string::npos)
 		{
-			std::cout << "Word Found: " << formName.find(formsTypes[i]) << "\n\n\n";
 			std::cout << "\033[32mIntern creates " << formsTypes[i] << "\033[0m\n\n";
 			return (this->*func[i])(formTarget);
 		}
