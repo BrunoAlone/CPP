@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:51:52 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/31 14:44:34 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:34:56 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class	Character : public ICharacter
 		Character&	operator=(const Character& other);
 		~Character();
 
+		// Constructor taking is name as parameter
 		Character(const std::string& name);
 
 		const std::string&	getName() const;

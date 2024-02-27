@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:48:22 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/06 11:09:00 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:37:42 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class	MateriaSource : public IMateriaSource
 		~MateriaSource();
 
 
-		void		learnMateria(AMateria* m);
-		AMateria*	createMateria(const std::string &type);
+		virtual void		learnMateria(AMateria* m);
+		virtual AMateria*	createMateria(const std::string &type);
 };
 
 #endif

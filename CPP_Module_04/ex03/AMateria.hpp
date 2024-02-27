@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:47:28 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/05 16:58:11 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:17:28 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*
 			AMateria - Pure Abstract Class
 
-			clone is a pure virtual function. This way, AMateria
+			Clone is a pure virtual function. This way, AMateria
 		is an abstract class.
 
 			"class	ICharacter" é uma definiçao antecipada da
@@ -40,7 +40,7 @@ class	AMateria
 		AMateria&	operator=(const AMateria& other);
 		virtual ~AMateria();
 
-
+		// Constructor whith type specified
 		AMateria(const std::string& type);
 
 		// Getter

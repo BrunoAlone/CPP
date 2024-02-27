@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:51:17 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/05 16:24:26 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:14:33 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	Cat : public Animal
 		Cat&	operator=(const Cat& other);
 		~Cat();
 
-		void	makeSound() const;
+		virtual void	makeSound() const;
 
 		Brain*	getBrain() const;
 };

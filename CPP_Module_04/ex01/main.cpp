@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:17 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/05 16:22:36 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:55:02 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ int	main()
 			array[i] = new Cat();
 	}
 
-	// const Cat*	cat = new Cat();
+	 const Cat*	cat = new Cat();
 
-	// cat->getBrain()->setIdeas();
+	 cat->getBrain()->setIdeas();
 
-	// cat->getBrain()->ideasTell();
+	 cat->getBrain()->ideasTell();
 
-	// std::cout << "Now, let's call the copy constructor of the cat: \n";
+	 std::cout << "Now, let's call the copy constructor of the cat: \n";
 
-	// const Cat*	cat2 = new Cat(*cat);
+	 const Cat*	cat2 = new Cat(*cat);
 
-	// std::cout << "Now, we delete the first cat, and see, that the second one, has his own brain with is own thoughts:\n\n";
+	 std::cout << "Now, we delete the first cat, and see, that the second one, has his own brain with is own thoughts:\n\n";
 
-	// delete cat;
+	 delete cat;
 
-	// cat2->getBrain()->ideasTell();
+	 cat2->getBrain()->ideasTell();
 
-	// delete cat2;
+	 delete cat2;
 
 	for (int i = 0; i < 10; i++)
 		delete array[i];

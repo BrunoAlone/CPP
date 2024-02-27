@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:00:09 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/06 11:28:09 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:54:14 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ Character&	Character::operator=(const Character& other)
 
 Character::~Character()
 {
+	std::cout << "Character destructor is called\n\n";
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inventory[i])
@@ -89,6 +90,7 @@ void	Character::equip(AMateria* m)
 	{
 		if (this->inventory[i] == NULL)
 		{
+			std::cout << "The materia " << m->getType() << " has been equiped\n\n";
 			this->inventory[i] = m;
 			break;
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 10:14:38 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/06 11:10:23 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:29:26 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ Ice::Ice(const Ice& other) : AMateria()
 Ice&	Ice::operator=(const Ice& other)
 {
 	std::cout << "Ice: Copy assignment operator called\n\n";
-	if (this != &other)
-	{
-		this->type_ = other.type_;
-	}
+	(void)other;
 	return (*this);
 }
 
@@ -41,7 +38,7 @@ Ice::~Ice()
 
 AMateria*	Ice::clone() const
 {
-	Ice	*clone = new Ice();
+	AMateria	*clone = new Ice(*this);
 
 	return (clone);
 }

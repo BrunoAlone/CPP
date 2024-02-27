@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:47 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/05 13:49:29 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:01:53 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 /*
-			Neste exercicio e nos pedido para implementar uma
+			Neste exercicio é nos pedido para implementar uma
 		classe base chamada Animal.
 
 			É nos dito, que esta classe tem um atributo protected
@@ -33,7 +33,7 @@
 		base para outras classes derivas dela, o seu destructor tem de
 		ser virtual. Ao colocar este destructor virtual, assegurámos que
 		toda a memória é libertada de forma apropriada quando sao apagados
-		objetos das classes derivadas atraves de ponteiros da classe
+		objetos das classes derivadas através de ponteiros da classe
 		base.
 
 			O polimorfismo permite que objectos das classes
@@ -41,7 +41,7 @@
 		quando são acessadas através de ponteiros ou por referência
 		da classe base. Quando temos um ponteiro ou uma referência
 		para uma classe base que aponta para um objecto de uma classe
-		derivada, C++, permite que chamemos funcões da classe derivada
+		derivada, o C++, permite que chamemos funcões da classe derivada
 		através do ponteiro da classe base.
 
 			Porque virtual destructor???:

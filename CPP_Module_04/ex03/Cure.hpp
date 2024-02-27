@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei < brolivei@student.42porto.com    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 11:26:27 by brolivei          #+#    #+#             */
-/*   Updated: 2024/01/31 11:45:33 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:24:37 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class	Cure : public AMateria
 		Cure&	operator=(const Cure& other);
 		~Cure();
 
-		AMateria*	clone() const;
-		void		use(ICharacter& target);
+		virtual AMateria*	clone() const;
+		virtual void		use(ICharacter& target);
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:17 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/05 14:29:42 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:34:03 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int	main()
 
 	std::cout << cat->getType() << " " << std::endl;
 	wrongCat->makeSound();
+
+	std::cout << "As the function 'makeSound' is not virtual ";
+	std::cout << "the implementation called is from the parent class.\n\n";
 
 	delete wrongCat;
 	return (0);
