@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:35:51 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/08 14:36:18 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/29 19:06:18 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,21 @@ void	Bureaucrat::decrementGrade()
 }
 
 // Signing Form
-void	Bureaucrat::signForm(const Form& form) const
+void	Bureaucrat::signForm(Form& form) const
 {
+	form.beSigned(*this);
 	if (form.getSigned())
-		std::cout << this->Name_ << " signed " << form.getName() << std::endl;
+		std::cout << "\033[0;32m" << this->Name_ << " signed " << form.getName() << "\n\n\033[0m";
 	else
-		std::cout << this->Name_ << " couldn't sign " << form.getName() <<
-		"because his level is to low...\n";
+		std::cout << "\033[0;31m" <<this->Name_ << " couldn't sign " << form.getName() <<
+		"because his level is to low...\n\n\033[0m";
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& obj)
 {
-	os << obj.getName();
+	os << "\033[0;32m" << obj.getName();
 	os << ", bureaucrat grade ";
-	os << obj.getGrade() << "." << std::endl;
+	os << obj.getGrade() << ".\033[0m" << "\n\n";
 
 	return (os);
 }

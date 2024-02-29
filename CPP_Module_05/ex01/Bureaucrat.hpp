@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:30:52 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/07 14:52:44 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:06:34 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class	Bureaucrat
 		void	decrementGrade();
 
 		// Signing Form
-		void	signForm(const Form& form) const;
+		void	signForm(Form& form) const;
 
 		// Exception classes
 		/*

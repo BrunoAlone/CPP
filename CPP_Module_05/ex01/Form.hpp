@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:26:08 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/07 14:52:52 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:19:34 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <iomanip>
 
 class	Bureaucrat;
 
@@ -33,8 +34,8 @@ class	Form
 		~Form();
 
 		// Getters
-		std::string	getName() const;
-		bool				getSigned() const;
+		std::string		getName() const;
+		bool			getSigned() const;
 		unsigned int	getGradeToSign() const;
 		unsigned int	getGradeToExecute() const;
 

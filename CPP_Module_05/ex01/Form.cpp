@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:33:16 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/07 14:54:25 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/29 19:01:43 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ void	Form::beSigned(const Bureaucrat& person)
 	if (person.getGrade() <= this->GradeToSign_)
 	{
 		this->Signed_ = true;
-		person.signForm(*this);
 	}
 	else if (person.getGrade() > this->GradeToSign_)
 		throw GradeTooLowException();
@@ -108,11 +107,11 @@ const char*	Form::GradeTooLowException::what() const throw()
 
 std::ostream&	operator<<(std::ostream& os, const Form& obj)
 {
-	os << "\n\tForm details: \n\n";
-	os << "\t\t" << "Name of the form: " << obj.getName() << std::endl;
-	os << "\t\t" << "It is Signed: " << obj.getSigned() << std::endl;
-	os << "\t\t" << "Grade to sign: " << obj.getGradeToSign() << std::endl;
-	os << "\t\t" << "Grade to execute: " << obj.getGradeToExecute() << std::endl;
+	os << "\033[0;32;40m\n\tForm details: \n\n";
+	os << std::left << std::setw(20) << "Name of the form: " << std::setw(20) << obj.getName() << std::endl;
+	os << std::left << std::setw(20) << "It is Signed: " << std::setw(20) << obj.getSigned() << std::endl;
+	os << std::left << std::setw(20) << "Grade to sign: " << std::setw(20) << obj.getGradeToSign() << std::endl;
+	os << std::left << std::setw(20) << "Grade to execute: " << std::setw(20) << obj.getGradeToExecute() << "\033[0m\n\n";
 
 	return (os);
 }
