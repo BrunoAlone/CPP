@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:30:52 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/07 14:51:18 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:52:36 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
-
-class	Form;
 
 class	Bureaucrat
 {
@@ -47,8 +44,8 @@ class	Bureaucrat
 				They public inherit from 'std::exception'. This type
 			of class is Standard on CPP for this type of classes.
 
-				This class (std::exception) its an interface that declares
-			a member fucntion 'what()' wich returns a C-string describing
+				This class (std::exception) it's an interface that declares
+			a member function 'what()' wich returns a C-string describing
 			the exception.
 
 				The most custom exception classes in C++ inherit from this

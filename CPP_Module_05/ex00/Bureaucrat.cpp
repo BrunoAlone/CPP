@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:35:51 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/06 14:45:38 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/29 13:57:24 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat: Destructor called\n\n";
 }
 
-// Adaptative constructors
+// Adaptive constructors
 
 Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade) : Name_(name)
 {
-	std::cout << "Bureaucrat: Default constructor called\n\n";
+	std::cout << "Bureaucrat: Adaptive constructor called\n\n";
 	if (grade < 1)
 		throw GradeTooHighException();
 	else if (grade > 150)

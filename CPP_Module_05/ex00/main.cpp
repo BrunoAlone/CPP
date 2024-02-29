@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:37:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/07 11:17:01 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/02/29 14:16:33 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main()
 {
-	int	x;
+	Bureaucrat	*test[3];
 
 	/*
 			If an exception is catched, in the way we are handling,
@@ -25,18 +25,32 @@ int	main()
 
 	for (int i = 0; i < 3; i++)
 	{
+		int	x;
 		std::cout << "Write the grade of the Bureaucrat: ";
 		std::cin >> x;
 		std::cout << std::endl;
 
-		try {
-			Bureaucrat	test1("João", x);
-			std::cout << test1 << std::endl;
-		} catch (std::exception& e)
+		try
 		{
+			//Bureaucrat	test1("João", x);
+			//std::cout << test1 << std::endl;
+			test[i] = new Bureaucrat("João", x);
+		}
+		catch (std::exception& e)
+		{
+			test[i] = NULL;
 			std::cout << "Exception: " << e.what() << std::endl;
 		}
 	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		if (test[i] != NULL)
+			std::cout << *test[i];
+	}
+
+	for (int i = 0; i < 3; i++)
+		delete test[i];
 
 	return (0);
 }
