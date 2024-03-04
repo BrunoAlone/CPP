@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:37:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/16 14:05:02 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/04 14:14:07 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,10 @@ int	main()
 	std::cout << *tree << std::endl;
 	std::cout << *robot << std::endl;
 	std::cout << *pardon << std::endl;
+
+	delete tree;
+	delete robot;
+	delete pardon;
+	
 	return (0);
 }

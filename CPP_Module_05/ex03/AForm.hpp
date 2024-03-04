@@ -15,6 +15,7 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <iomanip>
 
 class	Bureaucrat;
 
