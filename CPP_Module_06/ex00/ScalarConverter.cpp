@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:40:07 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/05 15:38:42 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/06 14:39:41 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 bool	checkInPut(const std::string& input)
 {
-	if (input.length() == 1 && input[0] >= ' ' && input[0] <= '~')
+	if (input.length() == 1 && input[0] >= ' ' && input[0] <= '~') // Check if its only a char
 		return (true);
-	if (input.find_last_of('.') != input.find_first_of('.'))
+	if (input.find_last_of('.') != input.find_first_of('.')) // Check if has more than one decimal point
 		return (false);
-	if (input[input.length() - 1] == 'f' && input.find('.') != std::string::npos)
+	if (input[input.length() - 1] == 'f' && input.find('.') != std::string::npos) // Check if the input has one "f" character
+	// at the end. Indicating that is a floating point. If its true, we have to do the loop only until that index.
 	{
 		for (size_t i = 0; i < (input.length() - 1); i++)
 		{
-			if (input[i] == '-' && i == 0)
+			if (input[i] == '-' && i == 0) // If it's negative, and only in the first character is accepted the "-"
 				continue;
-			else if (input[i] == '.')
+			else if (input[i] == '.') // After verify if it have only one decimal point, we can just pass by the decimal point.
 				continue;
-			else if (!isdigit(input[i]))
+			else if (!isdigit(input[i])) // Verify if it's only digits.
 				return (false);
 		}
 	}
-	else if (!(input.length() - 1 == 'f'))
+	else if (!(input.length() - 1 == 'f')) // Same thing but not counting with an f at the end.
 	{
 		for (size_t i = 0; i < (input.length()); i++)
 		{
@@ -143,7 +144,8 @@ void	printDouble(const long double x)
 		double	num = double (x);
 		double	intPart;
 
-		if (std::modf(x, &intPart) != 0)
+		if (std::modf(x, &intPart) != 0) // Verify if the decimal part is non 0. That's necessary because we want to print every time
+		// the decimal part, even when it's 0.
 			std::cout << "Double: " << num << std::endl;
 		else
 			std::cout << "Double: " << num << ".0" << std::endl;
@@ -162,14 +164,20 @@ void	ScalarConverter::convert(std::string& input)
 {
 	std::cout << "\t\033[32m--ScalarConverter called: --\033[0m\n\n";
 
-	if (input.empty())
+	if (input.empty()) // If input is empty, its invalid
 	{
 		std::cout << "\033[33mInvalid Input\033[0m\n\n";
 		return ;
 	}
-	if (checkInPut(input))
+	if (checkInPut(input)) // If everything is good return true.
 	{
-		printTypes(std::strtod(input.c_str(), NULL));
+		if (input.length() == 1 && input[0] >= ' ' && input[0] <= '~') // Verify if we are dealing with input like: "a", "b"...
+			printTypes(input[0]); // If we so so, we can't use strtod(), because it will assume as an input error and will
+			//return 0.0, wich we don't want.
+		else
+			printTypes(std::strtold(input.c_str(), NULL)); // If the input it's a number, we can convert it to long double, and from
+			// that point we can convert that long double format number to any other type we want, and since he is biggest than,
+			// any other type we want to convert, we are ok.
 	}
 	else
 	{
