@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:04:57 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/06 17:45:41 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/07 15:02:32 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ int	main()
 	std::cout << data << std::endl;
 	std::cout << test_data_ptr << std::endl;
 
+	std::cout << "\033[0;32mLet's print our structor with the test_data_ptr:\033[0;0m\n";
+
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << "ID: " << test_data_ptr[i].id << std::endl;
+		std::cout << "Value: " << test_data_ptr[i].value << std::endl << std::endl;
+	}
+	
 	delete[] data;
 	return (0);
 }

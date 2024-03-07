@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:51:45 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/06 17:26:49 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/07 15:06:10 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ typedef struct s_data
 {
 	int	id;
 	int	value;
-}				Data;
+}				Data; // We create a simple data struct just to test the conversions
 
 
 class Serializer
 {
 	public:
 		static uintptr_t	serialize(Data* ptr);
-		static Data*				deserialize(uintptr_t raw);
+		static Data*		deserialize(uintptr_t raw);
 };
 
 #endif
