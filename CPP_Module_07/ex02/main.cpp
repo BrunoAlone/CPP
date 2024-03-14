@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:06:28 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/14 11:44:06 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/14 13:05:38 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,34 @@ void	testCopyAndAssignment()
 	std::cout << "d -> "; d.printArray();
 }
 
+void	testExceptionOfTheLimits()
+{
+	Array<int>	x(10);
+
+	for (int i = 0; i < 10; i++)
+		x[i] = i;
+
+	std::cout << "We create an array with ten numbers:" << std::endl;
+
+	x.printArray();
+
+	std::cout << "Now lest try to access an index that does not exist, for example, 11:\n" << std::endl;
+
+	try{
+		x[11] = 10;
+	} catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "As we see an exception was catch.\n";
+}
+
 int	main()
 {
-	testDefault();
-	testCopyAndAssignment();
+	//testDefault();
+	//testCopyAndAssignment();
+	testExceptionOfTheLimits();
+
 
 	return (0);
 }
