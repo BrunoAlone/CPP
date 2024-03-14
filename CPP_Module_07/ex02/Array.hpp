@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:33:07 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/14 11:12:45 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/14 11:33:21 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ template <typename T> class Array
 
 template <typename T> Array<T>::Array() : size_(0)
 {
-	std::cout << "Default constructor called\n\n";
+	std::cout << "Default constructor called\n";
 	array = new T[0]; // Allocate memory for array
 }
 
 template <typename T> Array<T>::Array(Array& other) : size_(other.Size())
 {
-	std::cout << "Copy constructor called\n\n";
+	std::cout << "Copy constructor called\n";
 	this->array = new T[other.Size()];
 	for (unsigned int i = 0; i < other.Size(); i++)
 		this->array[i] = other[i];
@@ -58,6 +58,7 @@ template <typename T> Array<T>::Array(Array& other) : size_(other.Size())
 
 template <typename T> Array<T>&	Array<T>::operator=(Array& other)
 {
+	std::cout << "Copy assignment operator called\n";
 	if (this == &other)
 		return (*this);
 	this->size_ = other.Size();
@@ -78,7 +79,7 @@ template <typename T> Array<T>::Array(int n) : size_(n)
 
 template <typename T> Array<T>::~Array()
 {
-	std::cout << "Destructor called\n\n";
+	std::cout << "Destructor called\n";
 
 	delete[] this->array;
 }
