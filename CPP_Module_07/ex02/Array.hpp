@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:33:07 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/13 17:19:48 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/14 11:12:45 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,23 @@ template <typename T> class Array
 	public:
 		Array();
 		Array(Array& other);
-		//Array&	operator=(Array& other);
+		Array&	operator=(Array& other);
 		Array(int n);
 		~Array();
 
 		// Methods
 		void	printArray();
-		size_t	Size();
+		size_t	Size() const;
 
-		// Getter
-		T*	getArray();
+		// Overload []
+		T&	operator[](unsigned int index);
 
+
+		class	outOfBoundsException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 template <typename T> Array<T>::Array() : size_(0)
@@ -42,15 +48,24 @@ template <typename T> Array<T>::Array() : size_(0)
 	array = new T[0]; // Allocate memory for array
 }
 
-template <typename T> Array<T>::Array(Array& other)
+template <typename T> Array<T>::Array(Array& other) : size_(other.Size())
 {
 	std::cout << "Copy constructor called\n\n";
-	if (other.getArray() != NULL)
-	{
-		this->array = new T[other.Size()];
-		for (size_t i = 0; i < other.Size(); i++)
-			this->array[i] = other.getArray()[i];
-	}
+	this->array = new T[other.Size()];
+	for (unsigned int i = 0; i < other.Size(); i++)
+		this->array[i] = other[i];
+}
+
+template <typename T> Array<T>&	Array<T>::operator=(Array& other)
+{
+	if (this == &other)
+		return (*this);
+	this->size_ = other.Size();
+	delete[] this->array;
+	this->array = new T[size_];
+	for (unsigned int i = 0; i < size_; i++)
+		this->array[i] = other[i];
+	return (*this);
 }
 
 template <typename T> Array<T>::Array(int n) : size_(n)
@@ -68,7 +83,7 @@ template <typename T> Array<T>::~Array()
 	delete[] this->array;
 }
 
-template <typename T> size_t	Array<T>::Size()
+template <typename T> size_t	Array<T>::Size() const
 {
 	return (this->size_);
 }
@@ -84,9 +99,17 @@ template <typename T> void	Array<T>::printArray()
 	}
 }
 
-template <typename T> T*	Array<T>::getArray()
+template <typename T> T&	Array<T>::operator[](unsigned int index)
 {
-	return (this->array);
+	if (index >= this->size_)
+		throw outOfBoundsException();
+	else
+		return (this->array[index]);
+}
+
+template <typename T> const char* Array<T>::outOfBoundsException::what() const throw()
+{
+	return ("Index outOfBound.\n");
 }
 
 #endif
