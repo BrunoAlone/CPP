@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:35:51 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/12 17:13:06 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:02:45 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,10 @@ void	Bureaucrat::signForm(AForm& form) const
 {
 	form.beSigned(*this);
 	if (form.getSigned() == true)
-		std::cout << "\033[32m" << this->getName() << " signed " << form.getName() << "\033[0m\n\n";
+		std::cout << "\033[0;32m" << this->Name_ << " signed " << form.getName() << "\n\n\033[0m";
 	else
-		std::cout << "\033[33m" << this->getName() << " could not signed " <<
-		form.getName() << "\033[0m\n\n";
+		std::cout << "\033[0;31m" << this->Name_ << " couldn't sign " << form.getName() <<
+		"because his level is to low...\n\n\033[0m";
 }
 
 // Execute Form
@@ -102,7 +102,6 @@ void	Bureaucrat::executeForm(const AForm& form) const
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-
 }
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& obj)

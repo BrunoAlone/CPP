@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:35:51 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/29 19:06:18 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/04 13:35:30 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	Bureaucrat::signForm(Form& form) const
 	if (form.getSigned())
 		std::cout << "\033[0;32m" << this->Name_ << " signed " << form.getName() << "\n\n\033[0m";
 	else
-		std::cout << "\033[0;31m" <<this->Name_ << " couldn't sign " << form.getName() <<
+		std::cout << "\033[0;31m" << this->Name_ << " couldn't sign " << form.getName() <<
 		"because his level is to low...\n\n\033[0m";
 }
 

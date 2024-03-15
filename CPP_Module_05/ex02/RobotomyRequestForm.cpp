@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 13:34:26 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/12 17:09:47 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:53:00 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 	std::cout << "The AForm: " << this->getName() << std::endl;
 	std::cout << "It will be executed by: \n";
 	std::cout << executor;
-	
+
 	if (!this->getSigned())
 		throw FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
@@ -71,3 +71,16 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 			std::cout << "\033[1;31mRobotomy Failed\n\n";
 	}
 }
+
+/*
+		The "srand()"" function initializes the random number generator
+	with a seed value.
+		In C++, the "rand()" function generates pseudorandom numbers, wich
+	means the sequence of numbers it produces appears random but is actually
+	deterministic, based on an initial seed value.
+
+		By calling "srand()" with "time(NULL)" as an argument, we are seeding
+	the random number generator with the current time. Since time is constantly
+	changing, this ensures that each time we run the program, we get a different
+	value, leading to a different sequence of pseudorandom numbers.
+*/

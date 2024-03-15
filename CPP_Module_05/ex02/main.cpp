@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:37:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/12 17:10:47 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:07:54 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main()
 		John.executeForm(robot);
 
 		Wilson.executeForm(robot);
-		
+
 		Wilson.signForm(tree);
 		Wilson.executeForm(tree);
 

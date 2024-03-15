@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:33:16 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/29 19:01:43 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/04 13:37:13 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,12 @@ void	Form::beSigned(const Bureaucrat& person)
 // Exceptions classes
 const char*	Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade to High to this Form!!\n");
+	return ("\033[1;31mGrade to High to this AForm\033[0m\n");
 }
 
 const char*	Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade to low to this Form!!\n");
+	return ("\033[1;31mGrade to low to this AForm\033[0m\n");
 }
 
 // Overload of the insertion

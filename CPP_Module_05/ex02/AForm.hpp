@@ -15,6 +15,7 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <iomanip>
 
 class	Bureaucrat;
 
@@ -33,8 +34,8 @@ class	AForm
 		virtual ~AForm();
 
 		// Getters
-		std::string	getName() const;
-		bool				getSigned() const;
+		std::string		getName() const;
+		bool			getSigned() const;
 		unsigned int	getGradeToSign() const;
 		unsigned int	getGradeToExecute() const;
 
