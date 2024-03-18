@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 12:00:09 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/27 14:54:14 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/18 15:39:47 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,19 @@ Character::Character(const Character& other)
 	std::cout << "Character: Copy constructor called\n\n";
 	this->Name_ = other.Name_;
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = other.inventory[i]->clone();
+	{
+		if (other.inventory[i] == NULL)
+			continue;
+		else
+			this->inventory[i] = other.inventory[i]->clone(); // Making deep copy
+	}
 	for (int i = 0; i < 10; i++)
-		this->RubbishBin[i] = other.RubbishBin[i]->clone();
+	{
+		if (other.RubbishBin[i] == NULL)
+			continue;
+		else
+			this->RubbishBin[i] = other.RubbishBin[i]->clone();
+	}
 }
 
 Character&	Character::operator=(const Character& other)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:46:32 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/06 11:41:12 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:02:50 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int main()
 
 	src->createMateria("Rock");
 
+	std::cout << "-----Creating a Character-----\n\n\n";
+
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 
@@ -43,6 +45,8 @@ int main()
 
 	me->use(0, *bob);
 	me->use(1, *bob);
+
+	me->equip(src->createMateria("ice"));
 
 	delete bob;
 	delete me;

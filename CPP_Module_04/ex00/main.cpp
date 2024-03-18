@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:17 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/27 13:34:03 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/18 14:08:19 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main()
 	std::cout << "the implementation called is from the parent class.\n\n";
 
 	delete wrongCat;
+
 	return (0);
 }
 

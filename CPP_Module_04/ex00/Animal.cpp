@@ -6,22 +6,21 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:33:56 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/27 13:24:51 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/18 14:12:36 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal() : type_("Animal")
 {
 	std::cout << "Animal: Default constructor called\n\n";
-	type_ = "Animal";
 }
 
-Animal::Animal(const Animal& other)
+// Protected memebrs are accessible on derived classes
+Animal::Animal(const Animal& other) : type_(other.type_)
 {
 	std::cout << "Animal: Copy constructor called\n\n";
-	this->type_ = other.type_;
 }
 
 Animal&	Animal::operator=(const Animal& other)
@@ -36,7 +35,7 @@ Animal&	Animal::operator=(const Animal& other)
 
 Animal::~Animal()
 {
-	std::cout << "Animal: Destructor constructor called\n\n";
+	std::cout << "Animal: Default Destructor called\n\n";
 }
 
 std::string	Animal::getType() const

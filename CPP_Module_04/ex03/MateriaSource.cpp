@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 14:59:09 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/27 14:45:59 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/18 15:49:36 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 	std::cout << "MateriaSource: Copy constructor called\n\n";
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->stack[i] == NULL)
-			delete this->stack[i];
-		this->stack[i] = other.stack[i];
+		//if (this->stack[i] == NULL)
+		//	delete this->stack[i];
+		this->stack[i] = other.stack[i]->clone();
 	}
 }
 
@@ -84,7 +84,7 @@ AMateria*	MateriaSource::createMateria(const std::string &type)
 	{
 		if (this->stack[i] != NULL)
 		{
-			if (this->stack[i]->getType().compare(type) == 0)
+			if (this->stack[i]->getType().compare(type) == 0) // Compara o type dado de input com o type da AMateria
 			{
 				return this->stack[i]->clone();
 			}

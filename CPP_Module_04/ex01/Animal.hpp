@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 10:30:47 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/27 13:52:11 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/18 14:55:34 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ class	Animal
 		Animal();
 		Animal(const Animal& other);
 		Animal&	operator=(const Animal& other);
-		virtual ~Animal();
+		virtual ~Animal(); // Virtual keyword has to be in the
+		// destructor too, because every derived class must overwrite
+		// is own destruction, freeing is memory. The compiler doesn't even
+		// let you compile without this.
 
 		//Getter
 		std::string	getType() const;
