@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:35:51 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/29 13:57:24 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:29:47 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 // Ortodox Constructors and destructors
 
-Bureaucrat::Bureaucrat() : Name_("RandomName")
+Bureaucrat::Bureaucrat() : Name_("RandomName"), Grade_(150)
 {
 	std::cout << "Bureaucrat: Default constructor called\n\n";
-	this->Grade_ = 150;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : Name_(other.Name_)
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : Name_(other.Name_),
+Grade_(other.getGrade())
 {
 	std::cout << "Bureaucrat: Copy constructor called\n\n";
-	this->Grade_ = other.getGrade();
 }
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat& other)
 {
 	std::cout << "Bureaucrat: Copy assignment operator called\n\n";
-	if (this != &other)
+	if (this != &other) // Good practice that avoid shit like deallocate memory and then
+	//assign it, if it's the same object
 		this->Grade_ = other.getGrade();
+	// Name is as const atribbute so we cant change it.
 	return (*this);
 }
 
@@ -67,7 +68,7 @@ unsigned int	Bureaucrat::getGrade() const
 void	Bureaucrat::incrementGrade()
 {
 	if (this->Grade_ == 1)
-		throw GradeTooHighException();
+		throw GradeTooHighException(); // Throw the exception when te problem arise
 	else
 		this->Grade_ -= 1;
 }
@@ -75,7 +76,7 @@ void	Bureaucrat::incrementGrade()
 void	Bureaucrat::decrementGrade()
 {
 	if (this->Grade_ == 150)
-		throw GradeTooLowException();
+		throw GradeTooLowException(); // Throw the exception when te problem arise
 	this->Grade_ += 1;
 }
 

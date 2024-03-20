@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:37:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/29 14:16:33 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/20 15:21:22 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,18 @@ int	main()
 	for (int i = 0; i < 3; i++)
 	{
 		int	x;
+		std::string	name;
+
 		std::cout << "Write the grade of the Bureaucrat: ";
 		std::cin >> x;
+		std::cout << "\nWrite the name of the Bureaucrat: ";
+		std::cin >> name;
 		std::cout << std::endl;
 
 		try
 		{
-			//Bureaucrat	test1("João", x);
-			//std::cout << test1 << std::endl;
-			test[i] = new Bureaucrat("João", x);
+			test[i] = new Bureaucrat(name, x);
+			std::cout << "Buereaucrat was created: \n" << *test[i] << std::endl;
 		}
 		catch (std::exception& e)
 		{
@@ -46,7 +49,7 @@ int	main()
 	for (int i = 0; i < 3; i++)
 	{
 		if (test[i] != NULL)
-			std::cout << *test[i];
+			std::cout << *test[i] << std::endl;
 	}
 
 	for (int i = 0; i < 3; i++)

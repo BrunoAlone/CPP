@@ -6,7 +6,7 @@
 /*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 14:37:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/02/29 19:03:37 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/20 16:33:23 by bruno            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 void	SignForm(const Bureaucrat& worker, Form& form)
 {
-	try
-	{
-		worker.signForm(form);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << '\n';
-	}
-
+	//try
+	//{
+	//	worker.signForm(form);
+	//}
+	//catch(const std::exception& e)
+	//{
+	//	std::cerr << "Exception: " << e.what() << '\n';
+	//}
+	worker.signForm(form);
 }
 
 int	main()
@@ -53,8 +53,8 @@ int	main()
 
 	std::cout << "\033[1;31mIn the last step, we try to sign the forms with out bureaucrats: \033[0m\n\n";
 
-	SignForm(Rui, form1);
 	SignForm(Rui, form2);
-	
+	SignForm(Rui, form1);
+
 	return (0);
 }
