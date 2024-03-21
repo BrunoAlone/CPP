@@ -39,25 +39,19 @@ int	main()
 	std::cout << *robot << std::endl;
 	std::cout << *pardon << std::endl;
 
-	try
-	{
-		John.signForm(*robot);
-		John.executeForm(*robot);
+	John.signForm(*robot);
+	John.executeForm(*robot);
 
-		Wilson.executeForm(*robot);
+	Wilson.executeForm(*robot);
 
-		Wilson.signForm(*tree);
-		Wilson.executeForm(*tree);
+	Wilson.signForm(*tree);
+	Wilson.executeForm(*tree);
 
-		Wilson.executeForm(*pardon);
+	Wilson.executeForm(*pardon);
 
-		Wilson.signForm(*pardon);
-		Wilson.executeForm(*pardon);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << '\n';
-	}
+	Wilson.signForm(*pardon);
+	Wilson.executeForm(*pardon);
+	
 	(void)test;
 	std::cout << *tree << std::endl;
 	std::cout << *robot << std::endl;

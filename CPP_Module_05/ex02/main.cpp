@@ -25,31 +25,46 @@ int	main()
 	RobotomyRequestForm		robot("Mom");
 	PresidentialPardonForm	pardon("Mr Something");
 
+	std::cout << "==========Lets print what we create==========\n\n";
+
 	std::cout << John << std::endl;
 	std::cout << Wilson << std::endl;
 	std::cout << tree << std::endl;
 	std::cout << robot << std::endl;
 	std::cout << pardon << std::endl;
 
-	try
-	{
-		John.signForm(robot);
-		John.executeForm(robot);
+	// try
+	// {
+	// 	John.signForm(robot);
+	// 	John.executeForm(robot);
 
-		Wilson.executeForm(robot);
+	// 	Wilson.executeForm(robot);
 
-		Wilson.signForm(tree);
-		Wilson.executeForm(tree);
+	// 	Wilson.signForm(tree);
+	// 	Wilson.executeForm(tree);
 
-		Wilson.executeForm(pardon);
+	// 	Wilson.executeForm(pardon);
 
-		Wilson.signForm(pardon);
-		Wilson.executeForm(pardon);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << "Exception: " << e.what() << '\n';
-	}
+	// 	Wilson.signForm(pardon);
+	// 	Wilson.executeForm(pardon);
+	// }
+	// catch(const std::exception& e)
+	// {
+	// 	std::cerr << "Exception: " << e.what() << '\n';
+	// }
+
+	John.signForm(robot);
+	John.executeForm(robot);
+
+	Wilson.executeForm(robot);
+
+	Wilson.signForm(tree);
+	Wilson.executeForm(tree);
+
+	Wilson.executeForm(pardon);
+
+	Wilson.signForm(pardon);
+	Wilson.executeForm(pardon);
 
 	std::cout << tree << std::endl;
 	std::cout << robot << std::endl;

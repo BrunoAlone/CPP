@@ -82,12 +82,21 @@ void	Bureaucrat::decrementGrade()
 // Signing Form
 void	Bureaucrat::signForm(AForm& form) const
 {
-	form.beSigned(*this);
-	if (form.getSigned() == true)
-		std::cout << "\033[32m" << this->getName() << " signed " << form.getName() << "\033[0m\n\n";
-	else
-		std::cout << "\033[33m" << this->getName() << " could not signed " <<
-		form.getName() << "\033[0m\n\n";
+	// form.beSigned(*this);
+	// if (form.getSigned() == true)
+	// 	std::cout << "\033[32m" << this->getName() << " signed " << form.getName() << "\033[0m\n\n";
+	// else
+	// 	std::cout << "\033[33m" << this->getName() << " could not signed " <<
+	// 	form.getName() << "\033[0m\n\n";
+	try{
+		form.beSigned(*this);
+		std::cout << "\033[0;32m" << this->Name_ << " signed " << form.getName() << "\n\n\033[0m";
+	} catch (std::exception& e) {
+		std::cout << "\033[0;31m" << this->Name_ << " couldn't sign " << form.getName() <<
+		" because his level is to low...\n\n\033[0m";
+
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
 }
 
 // Execute Form

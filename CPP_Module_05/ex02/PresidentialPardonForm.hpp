@@ -28,7 +28,7 @@ class PresidentialPardonForm : public AForm
 
 		// Constructor with Target
 		PresidentialPardonForm(const std::string& target);
-
+ 
 		// Getter
 		std::string	getTarget() const;
 

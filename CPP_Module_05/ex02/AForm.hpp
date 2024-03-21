@@ -46,7 +46,7 @@ class	AForm
 		// Signing Function
 		void	beSigned(const Bureaucrat& person);
 
-		virtual void	execute(const Bureaucrat& executor) const = 0;
+		virtual void	execute(const Bureaucrat& executor) const = 0; // = 0 making this class an Abstract class
 
 		// Exceptions classes
 		class	GradeTooHighException : public std::exception

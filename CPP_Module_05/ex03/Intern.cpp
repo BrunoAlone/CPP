@@ -58,6 +58,10 @@ AForm*	Intern::makePresidential(std::string target)
 
 AForm*	Intern::makeForm(std::string formName, std::string formTarget)
 {
+	// Defining an array of member function pointers
+	// AForm* -> return type of the functions
+	// (Intern::*func[]) -> Declaring the array of members function. Each elements point to a func of intern class
+	// (std::string) -> INPUT of the member functions
 	AForm*(Intern::*func[])(std::string) =
 	{
 		&Intern::makeShrubbery,
@@ -69,7 +73,7 @@ AForm*	Intern::makeForm(std::string formName, std::string formTarget)
 		formName[i] = std::toupper(formName[i]);
 	for (int i = 0; i < 3; i++)
 	{
-		if (formName.find(formsTypes[i]) != std::string::npos)
+		if (formName.find(formsTypes[i]) != std::string::npos) // finf() searches for the sub string
 		{
 			std::cout << "\033[32mIntern creates " << formsTypes[i] << "\033[0m\n\n";
 			return (this->*func[i])(formTarget);
@@ -78,3 +82,6 @@ AForm*	Intern::makeForm(std::string formName, std::string formTarget)
 	std::cout << "\033[33mThe form type requested( " << formName << " ) doesn't exist\033[0m\n\n";
 	return (NULL);
 }
+
+
+// npos -> static member constant that find() methos return is does not find the occurrence

@@ -37,7 +37,7 @@ int	main()
 	std::cout << "Crating the pointer WrongAnimal whith the derived class WrongCat:\n\n";
 	const WrongAnimal*	wrongCat = new WrongCat();
 
-	std::cout << cat->getType() << " " << std::endl;
+	std::cout << wrongCat->getType() << " " << std::endl;
 	wrongCat->makeSound();
 
 	std::cout << "As the function 'makeSound' is not virtual ";

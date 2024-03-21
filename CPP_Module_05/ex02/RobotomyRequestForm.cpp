@@ -61,9 +61,11 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 		throw FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw GradeTooLowException();
-
 	else
 	{
+		// time(NULL)  return the current time
+		// srand func expects an unsigned int, so we cast the resuly of the time
+		// Initializes the internal state of the random number generator -> srand()
 		srand(static_cast<unsigned int>(time(NULL)));
 		if ((rand() % 100 + 1) % 2 == 0)
 			std::cout << "\033[1;32m" << this->Target_ << " has been robotomized\033[0m\n\n";

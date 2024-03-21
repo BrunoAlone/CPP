@@ -62,9 +62,9 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 		throw FormNotSignedException();
 	if (executor.getGrade() <= this->getGradeToExecute())
 	{
-		std::ofstream	outPut((this->Target_ + "_shrubbery").c_str());
+		std::ofstream	outPut((this->Target_ + "_shrubbery").c_str()); // std::ofstream : Create an output file
 
-		if (!outPut.is_open())
+		if (!outPut.is_open()) // Verify if the file was correctly open.
 		{
 			std::cerr << "Error opening the file!\n";
 			return ;
@@ -83,7 +83,7 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 		outPut << "                                , -=-~{ .-^- _" << std::endl;
 		outPut << "                                      `}" << std::endl;
 		outPut << "                                       {" << std::endl;
-		outPut.close();
+		outPut.close(); // Close the file
 		std::cout << "\t\033[1mThe tree has been made!!\033[0m\n\n";
 	}
 	else
