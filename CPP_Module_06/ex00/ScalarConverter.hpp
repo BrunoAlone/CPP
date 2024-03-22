@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:31:59 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/05 15:17:38 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/22 15:03:40 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <limits>
 #include <sstream>
 #include <cmath>
+#include <cctype>
 
 class	ScalarConverter
 {
@@ -32,11 +33,23 @@ class	ScalarConverter
 			NAN_, // O "_" no fim é porque "NAN" entra em conflito com a biblioteca cmath
 			INVALID
 		};
-	public:
-		static void	convert(std::string& input);
+
+		ScalarConverter();
+		~ScalarConverter();
 
 		static SpecialCase	checkSpecialCase(std::string& input);
-		static void	manipulateSpecial(SpecialCase special, const std::string& input);
+		static void			manipulateSpecial(SpecialCase special, const std::string& input);
+		static bool			checkInPut(const std::string& input);
+		static bool			isInt(const std::string& input);
+		static bool			isFloat(const std::string& input);
+
+		static void			charConvert(const std::string& input);
+		static void			intConvert(const std::string& input);
+		static void			floatConvert(const std::string& input);
+
+	public:
+		// Static keyword allow to use the function without the need of instantiate an obj
+		static void	convert(std::string& input);
 };
 
 #endif
