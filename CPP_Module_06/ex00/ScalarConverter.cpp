@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 10:59:52 by brolivei          #+#    #+#             */
-/*   Updated: 2024/03/22 15:22:50 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:28:44 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	printInt(const long double x)
 	}
 }
 
-void	printFloat(const long double x)
+void	printFloat(const double x)
 {
 	// The number std::numeric_limits<float>::min() its not negative!!!!!
 	// So, if we want to check negative limit we have to use de max and convert it
@@ -115,6 +115,7 @@ void	printFloat(const long double x)
 		float	num = static_cast<float>(x);
 		double	intPart;
 
+		// Modf returns the decimal part from a floating point number
 		if (std::modf(x, &intPart) != 0) // Verify if the fractional part in non 0.
 			std::cout << "Float: " << num << "f\n";
 		else
@@ -150,8 +151,8 @@ void		ScalarConverter::charConvert(const std::string& input)
 
 	std::cout << "Char: '" << c << "'\n";
 	std::cout << "Int: " << static_cast<int>(c) << "\n";
-	std::cout << "Float: " << static_cast<float>(c) << "\n";
-	std::cout << "Double: " << static_cast<double>(c) << "\n";
+	printFloat(c);
+	printDouble(c);
 }
 
 void			ScalarConverter::intConvert(const std::string& input)
@@ -180,27 +181,89 @@ void			ScalarConverter::floatConvert(const std::string& input)
 		return ;
 	}
 
-	std::cout << "Test: " << x << std::endl;
+	printChar(std::strtof(input.c_str(), NULL));
+	printInt(std::strtof(input.c_str(), NULL));
+	printFloat(std::strtof(input.c_str(), NULL));
+	printDouble(std::strtof(input.c_str(), NULL));
+}
 
-	printChar(std::strtol(input.c_str(), NULL, 10));
-	printInt(std::strtol(input.c_str(), NULL, 10));
-	printFloat(std::strtol(input.c_str(), NULL, 10));
-	printDouble(std::strtol(input.c_str(), NULL, 10));
+void			ScalarConverter::doubleConvert(const std::string& input)
+{
+	long double	x = std::strtold(input.c_str(), NULL);
+
+	if (x > std::numeric_limits<double>::max() || x < -std::numeric_limits<double>::max())
+	{
+		std::cout << "Double type detected in the input but it overflows\n\n";
+		return ;
+	}
+
+	printChar(std::strtod(input.c_str(), NULL));
+	printInt(std::strtod(input.c_str(), NULL));
+	printFloat(std::strtod(input.c_str(), NULL));
+	printDouble(std::strtod(input.c_str(), NULL));
+}
+
+ScalarConverter::SpecialCase	ScalarConverter::checkSpecialCase(std::string& input)
+{
+	if (input == "nan")
+		return NAN_;
+	else if (input == "+inf")
+		return PINF;
+	else if (input == "-inf")
+		return NINF;
+	else if (input == "+inff")
+		return PINFF;
+	else if (input == "-inf")
+		return NINFF;
+	else
+		return INVALID;
+}
+
+void	ScalarConverter::manipulateSpecial(SpecialCase special, const std::string& input)
+{
+	if (special == INVALID)
+	{
+		std::cout << "\033[33mInvalid Input\033[0m\n\n";
+		return ;
+	}
+	std::cout << "Char: Impossible\n";
+	std::cout << "Int: Impossible\n";
+
+	if (special == NAN_)
+	{
+		std::cout << "Float: nanf\n";
+		std::cout << "Double: nan\n";
+	}
+	else if (special != INVALID)
+	{
+		std::cout << "Float: " << input[0] << "inff\n";
+		std::cout << "Double: " << input[0] << "inf\n";
+	}
 }
 
 void	ScalarConverter::convert(std::string& input)
 {
 	std::cout << "\t\033[32m--ScalarConverter called: --\033[0m\n\n";
 
-	if (input.empty() || !checkInPut(input)) // If input is empty, its invalid
+	if (input.empty()) // If input is empty, its invalid
 	{
 		std::cout << "\033[33mInvalid Input\033[0m\n\n";
 		return ;
 	}
-	if (input.length() == 1 && input[0] >= ' ' && input[0] <= '~' && !std::isdigit(input[0]))
-		charConvert(input);
-	if (isInt(input))
-		intConvert(input);
-	if (isFloat(input))
-		floatConvert(input);
+	if (checkInPut(input))
+	{
+		if (input.length() == 1 && input[0] >= ' ' && input[0] <= '~' && !std::isdigit(input[0]))
+			charConvert(input);
+		else if (isInt(input))
+			intConvert(input);
+		else if (isFloat(input))
+			floatConvert(input);
+		else
+			doubleConvert(input);
+	}
+	else
+	{
+		SpecialCase	special = checkSpecialCase(input);
+		manipulateSpecial(special, input);
+	}
 }

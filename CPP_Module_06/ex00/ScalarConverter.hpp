@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:31:59 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/22 15:03:40 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:33:26 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class	ScalarConverter
 			INVALID
 		};
 
+		// Constructor in private so the class to prevent instantiation
+		// Force the use as we want
 		ScalarConverter();
 		~ScalarConverter();
 
@@ -46,6 +48,7 @@ class	ScalarConverter
 		static void			charConvert(const std::string& input);
 		static void			intConvert(const std::string& input);
 		static void			floatConvert(const std::string& input);
+		static void			doubleConvert(const std::string& input);
 
 	public:
 		// Static keyword allow to use the function without the need of instantiate an obj
