@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:00:22 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/07 15:44:33 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/26 11:59:34 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,26 @@
 			and deserialization purposes.
 */
 
+Serializer::Serializer()
+{}
+
+Serializer::Serializer(const Serializer& other)
+{}
+
+Serializer&	Serializer::operator=(const Serializer& other)
+{
+	if (this != &other)
+		return (*this);
+	return (*this);
+}
+
+Serializer::~Serializer()
+{}
+
 uintptr_t	Serializer::serialize(Data* ptr)
 {
+	// Takes the memory adress stored in "ptr" and converts directly
+	// into an integer representation
 	return (reinterpret_cast<uintptr_t>(ptr)); // Convert the Data pointer to unsignInteger
 }
 

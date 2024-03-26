@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:31:59 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/25 16:33:26 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:54:03 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ class	ScalarConverter
 		// Force the use as we want
 		ScalarConverter();
 		~ScalarConverter();
+		ScalarConverter(const ScalarConverter& other);
+		ScalarConverter&	operator=(const ScalarConverter& other);
 
 		static SpecialCase	checkSpecialCase(std::string& input);
 		static void			manipulateSpecial(SpecialCase special, const std::string& input);
 		static bool			checkInPut(const std::string& input);
+
 		static bool			isInt(const std::string& input);
 		static bool			isFloat(const std::string& input);
 

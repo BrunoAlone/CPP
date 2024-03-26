@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 16:51:45 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/07 15:06:10 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/26 11:57:52 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ typedef struct s_data
 
 class Serializer
 {
+	private:
+		Serializer();
+		Serializer(const Serializer& other);
+		Serializer&	operator=(const Serializer& other);
+		~Serializer();
 	public:
 		static uintptr_t	serialize(Data* ptr);
 		static Data*		deserialize(uintptr_t raw);

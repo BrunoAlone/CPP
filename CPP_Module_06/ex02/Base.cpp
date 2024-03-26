@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:06:07 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/07 17:59:04 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/26 11:51:24 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,20 @@ Base*	generate(void)
 	return (NULL);
 }
 
+/*
+		dynamic_cast: used to convert a base class pointer or reference
+	to a pointer or reference of aderived class.
+
+		dynamic cast perfom verifications before do the cast,
+	the verifications are made in runtime type information based
+	on the virtual table. So, to cast this way, the base class has
+	to have at least one virtual function.
+
+		dynamic_cast, when try to cast a base pointer to a derived
+	class pointer, it returns the pointer if it's correct, or NULL
+	pointer if not.
+*/
+
 void	identify(Base* p)
 {
 	if (dynamic_cast<A*>(p) != NULL)
@@ -50,14 +64,39 @@ void	identify(Base* p)
 		std::cout << "Not a base type\n\n";
 }
 
+/*
+		Working with references, dynamic cast throw an exception
+	"std::bad_cast		dynamic_cast: used to convert a base class pointer or reference
+	to a pointer or reference of aderived class.
+
+		dynamic cast perfom verifications before do the cast,
+	the verifications are made in runtime type information based
+	on the virtual table. So, to cast this way, the base class has
+	to have at least one virtual function.
+
+		dynamic_cast, when try to cast a base pointer to a derived
+	class pointer, it returns the pointer if it's correct, or NULL
+	pointer if not." in the case we try to cast a reference to a derived
+	class that it's not correct.
+
+		Strong tool to convert pointers or references to base classes
+	into pointers or references of derived classes.
+
+*/
+
 void	identify(Base& p)
 {
+	// Here we cast the exception if the cast is not allowed
+
+	// Because we dont use the result of the dynamic cast, we need
+	// to implicit cast that result to void, so the compiler dont
+	// complain.
 	try {
 		(void)(dynamic_cast<A&>(p));
 		std::cout << "This type of base is A\n\n";
 	}
 	catch(std::exception &e) {
-		std::cout << "Not an A\n\n";
+
 	}
 	try {
 		(void)(dynamic_cast<B&>(p));

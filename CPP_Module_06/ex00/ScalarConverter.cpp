@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 10:59:52 by brolivei          #+#    #+#             */
-/*   Updated: 2024/03/25 17:28:44 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/26 11:56:28 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,19 @@ ScalarConverter::~ScalarConverter()
 	std::cout << "Destructor called\n\n";
 }
 
+ScalarConverter::ScalarConverter(const ScalarConverter& other)
+{}
+
+ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& other)
+{
+	if (this != &other)
+		return (*this);
+	return (*this);
+}
+
 bool	ScalarConverter::checkInPut(const std::string& input)
 {
-	if (input.length() == 1 && input[0] >= ' ' && input[0] <= '~') // Check if its only a char
+	if (input.length() == 1 && input[0] >= ' ' && input[0] <= '~') // Check if it´s only a char
 		return (true);
 	if (input.find_last_of('.') != input.find_first_of('.')) // Check if has more than one decimal point
 		return (false);
@@ -87,7 +97,7 @@ void	printChar(long double x)
 	}
 }
 
-void	printInt(const long double x)
+void	printInt(const double x)
 {
 	if (x > std::numeric_limits<int>::max() || x < std::numeric_limits<int>::min())
 		std::cout << "Int: Overflow\n";
@@ -213,7 +223,7 @@ ScalarConverter::SpecialCase	ScalarConverter::checkSpecialCase(std::string& inpu
 		return NINF;
 	else if (input == "+inff")
 		return PINFF;
-	else if (input == "-inf")
+	else if (input == "-inff")
 		return NINFF;
 	else
 		return INVALID;
