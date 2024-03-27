@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:08:11 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/13 13:31:45 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/27 15:24:38 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 #define WHATEVER_HPP
 
 #include <iostream>
+
+/*
+		Keyword template:
+
+		Template are expanded at compiler time.
+
+		The ideia is to pass the data type, or the compiler it self
+	detects it, so we don't need to write the same function
+	for diferent data types.
+
+		This declaration: "template <typename T>" tells the compiler
+	that this function is a template that will receive a type
+	"T", that will be defined when the function is called.
+*/
 
 template <typename T> void	Swap(T& x, T& y)
 {

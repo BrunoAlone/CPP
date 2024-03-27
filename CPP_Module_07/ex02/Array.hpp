@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:33:07 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/14 11:33:21 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/27 17:09:59 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ template <typename T> class Array
 		T*	array;
 		unsigned int	size_;
 	public:
+		// Ortodox
 		Array();
 		Array(Array& other);
 		Array&	operator=(Array& other);
-		Array(int n);
 		~Array();
+
+		// Constructor
+
+		Array(int n);
 
 		// Methods
 		void	printArray();
@@ -52,7 +56,7 @@ template <typename T> Array<T>::Array(Array& other) : size_(other.Size())
 {
 	std::cout << "Copy constructor called\n";
 	this->array = new T[other.Size()];
-	for (unsigned int i = 0; i < other.Size(); i++)
+	for (unsigned int i = 0; i < other.Size(); i++) // Size_ is an unsigned int
 		this->array[i] = other[i];
 }
 
@@ -71,6 +75,7 @@ template <typename T> Array<T>&	Array<T>::operator=(Array& other)
 
 template <typename T> Array<T>::Array(int n) : size_(n)
 {
+	std::cout << "Constructor with size called\n";
 	this->array = new T[n];
 	for (int i = 0; i < n; i++)
 		this->array[i] = T(); // T() calls the defautl constructor of the type in question.

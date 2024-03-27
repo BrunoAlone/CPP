@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:06:28 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/14 13:05:38 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/27 17:15:45 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,12 @@ void	testExceptionOfTheLimits()
 
 int	main()
 {
+	//int*	a = new int();
+
+	//std::cout << *a << std::endl;
 	//testDefault();
-	//testCopyAndAssignment();
-	testExceptionOfTheLimits();
+	testCopyAndAssignment();
+	//testExceptionOfTheLimits();
 
 
 	return (0);
