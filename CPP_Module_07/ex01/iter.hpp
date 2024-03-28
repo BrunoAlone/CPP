@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 13:40:29 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/27 15:49:12 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:29:43 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,14 @@
 
 template <typename T> void	print(T x)
 {
-	std::cout << x << std::endl;
+	std::cout << x << " ";
 }
 
-
-// "void (*func)(T)" declares a function pointer named "func",
-// that takes an argument T and return "void".
-template <typename T> void	iter(T* array, size_t len, void (*func)(T))
+template <typename T> void	iter(T* array, size_t len, void (*func)(T x))
 {
 	for (size_t i = 0; i < len; i++)
 		func(array[i]);
-	std::cout << "All elements of the array where itereted" << std::endl;
+	std::cout << "All elements of the array where iterated" << std::endl;
 }
 
 #endif

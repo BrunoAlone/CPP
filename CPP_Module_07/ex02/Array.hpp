@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 14:33:07 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/27 17:09:59 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/28 13:31:35 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ template <typename T> class Array
 		Array&	operator=(Array& other);
 		~Array();
 
-		// Constructor
-
-		Array(int n);
+		// Other constructors
+		Array(unsigned int n);
 
 		// Methods
 		void	printArray();
@@ -73,11 +72,11 @@ template <typename T> Array<T>&	Array<T>::operator=(Array& other)
 	return (*this);
 }
 
-template <typename T> Array<T>::Array(int n) : size_(n)
+template <typename T> Array<T>::Array(unsigned int n) : size_(n)
 {
 	std::cout << "Constructor with size called\n";
 	this->array = new T[n];
-	for (int i = 0; i < n; i++)
+	for (unsigned int i = 0; i < n; i++)
 		this->array[i] = T(); // T() calls the defautl constructor of the type in question.
 							  // For example, if T is an INT, that place of the array will be 0 (The default constructor of the INT).
 }
@@ -87,6 +86,15 @@ template <typename T> Array<T>::~Array()
 	std::cout << "Destructor called\n";
 
 	delete[] this->array;
+}
+
+template <typename T> Array<T>::Array(unsigned int n) : size_(n)
+{
+	this->array = new T[n];
+	// Same has: int* array = new int[n];
+	for (unsigned int i = 0; i < n; i++)
+		this->array[i] = T(); // T() calls the defautl constructor of the type in question.
+							  // For example, if T is an INT, that place of the array will be 0 (The default constructor of the INT).
 }
 
 template <typename T> size_t	Array<T>::Size() const
