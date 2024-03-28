@@ -6,11 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:06:28 by bruno             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/03/27 17:15:45 by brolivei         ###   ########.fr       */
-=======
-/*   Updated: 2024/03/28 10:35:49 by brolivei         ###   ########.fr       */
->>>>>>> bf6bae0 (Something)
+/*   Updated: 2024/03/28 13:43:22 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,18 +92,9 @@ void	testExceptionOfTheLimits()
 
 int	main()
 {
-<<<<<<< HEAD
-	//int*	a = new int();
-
-	//std::cout << *a << std::endl;
-	//testDefault();
-	testCopyAndAssignment();
-	//testExceptionOfTheLimits();
-=======
 	testDefault();
 	testCopyAndAssignment();
 	testExceptionOfTheLimits();
->>>>>>> bf6bae0 (Something)
 
 
 	return (0);

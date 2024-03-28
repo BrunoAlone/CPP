@@ -6,7 +6,7 @@
 #    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 14:18:02 by bruno             #+#    #+#              #
-#    Updated: 2024/03/27 17:18:07 by brolivei         ###   ########.fr        #
+#    Updated: 2024/03/28 13:42:51 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CCFLAGS= -Wall -Wextra -Werror -g -std=c++98
 
 TEMPLATE_ARRAY = template_array
 
-SRCS_TEMPLATE_ARRAY = main2.cpp
+SRCS_TEMPLATE_ARRAY = main.cpp
 
 OBJS_TEMPLATE_ARRAY = $(SRCS_TEMPLATE_ARRAY:%.cpp=%.o)
 
