@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:20:56 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/15 14:48:32 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/28 14:07:43 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define EASYFIND_HPP
 
 #include <iostream>
+#include <algorithm>
 
 /*
 		=====Iterators=====
@@ -22,7 +23,7 @@
 container, like std::vector, std::list, std::deque, without
 exposing the underlying implementation details of the container.
 
-	They act like pointrs, allowing to access elements in the
+	They act like pointers, allowing to access elements in the
 container.
 
 	Initialization: Here, in this easyfind function, we use
@@ -58,14 +59,23 @@ do like this:
 
 template <typename T> int	easyfind(T C, int x)
 {
-	for (typename T::iterator i = C.begin(); i != C.end(); ++i)
+	typename T::iterator	it;
+
+	it = find(C.begin(), C.end(), x);
+
+	if (it != C.end())
 	{
-		if (*i == x)
-		{
-			std::cout << "It was found the occurrence of " << x << " in the container.\n";
-			return (0);
-		}
+		std::cout << "It was found the occurrence of " << x << " in the container.\n";
+		return (0);
 	}
+	//for (typename T::iterator i = C.begin(); i != C.end(); ++i)
+	//{
+		// if (*i == x)
+		// {
+		// 	std::cout << "It was found the occurrence of " << x << " in the container.\n";
+		// 	return (0);
+		// }
+	//}
 	return (std::cout << "Occurrence of: " << x << " not found\n", 1);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bruno <bruno@student.42.fr>                +#+  +:+       +#+        */
+/*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:51:46 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/15 15:37:22 by bruno            ###   ########.fr       */
+/*   Updated: 2024/03/28 14:08:44 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	testWithVector()
 
 	std::cout << "Now, let's fill our vector with 10 ints, randomly generated, between 1 and 10.\n";
 
+	srand(time(NULL));
 	for (int i = 0; i < 10; i++)
 	{
 		container.push_back(rand() % 10 + 1); // The push_back method will add a new element to our
@@ -68,6 +69,7 @@ void	testWithList()
 	std::cout << "index...\n";
 	std::cout << "\tWe can access them through iterators.\n\n";
 
+	srand(time(NULL));
 	for (int i = 0; i < 10; i++)
 		containerList.push_back(rand() % 10 + 1);
 
@@ -97,6 +99,7 @@ void	testWithDeque()
 
 	std::deque<int>	containerDeque;
 
+	srand(time(NULL));
 	for (int i = 0; i < 10; i++)
 		containerDeque.push_back(rand() % 10 + 1);
 
