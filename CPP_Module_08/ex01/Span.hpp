@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:32:41 by brolivei          #+#    #+#             */
-/*   Updated: 2024/03/28 15:02:57 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/03/28 16:42:47 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class	Span
 {
 	private:
-		const unsigned int		N_;
+		unsigned int		N_;
 		std::vector<int>	vec;
 	public:
 		// Orthodox
@@ -33,13 +33,22 @@ class	Span
 
 		// Member functions
 		void	addNumber(const int x);
-
 		void	printVector();
 
+		int		shortestSpan();
+		int		longestSpan();
 		// Getter
 
 		unsigned int		getN() const;
-		std::vector<int>	getVec() const;
+		const std::vector<int>&	getVec() const;
+
+		// Exception class
+
+		class	LimitOfElementsReached : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 #endif
