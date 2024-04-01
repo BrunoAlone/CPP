@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:32:41 by brolivei          #+#    #+#             */
-/*   Updated: 2024/03/28 16:42:47 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:57:36 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <limits>
+#include <iterator>
 
 class	Span
 {
@@ -33,6 +36,7 @@ class	Span
 
 		// Member functions
 		void	addNumber(const int x);
+		void	addNumberFromRange(std::vector<int>::iterator first, std::vector<int>::iterator last);
 		void	printVector();
 
 		int		shortestSpan();
@@ -45,6 +49,12 @@ class	Span
 		// Exception class
 
 		class	LimitOfElementsReached : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class	NoNumbersNoSpan : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

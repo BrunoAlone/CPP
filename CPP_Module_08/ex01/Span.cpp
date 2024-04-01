@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:40:37 by brolivei          #+#    #+#             */
-/*   Updated: 2024/03/28 16:45:30 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:07:42 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,62 @@ void	Span::addNumber(const int x)
 void	Span::printVector()
 {
 	for (std::vector<int>::iterator i = this->vec.begin(); i != this->vec.end(); i++)
-		std::cout << *i << " ";
+		std::cout << " " << *i;
 	std::cout << std::endl;
 }
 
-int	longestSpan()
+int	Span::longestSpan()
 {
-	
+	if (this->vec.size() <= 1)
+		throw NoNumbersNoSpan();
+
+	int	min_;
+	int	max_;
+
+	std::vector<int>::iterator	first = this->vec.begin();
+	std::vector<int>::iterator	last = this->vec.end();
+
+	min_ = *std::min_element(first, last);
+	max_ = *std::max_element(first, last);
+
+	return (max_ - min_);
+}
+
+int	Span::shortestSpan()
+{
+	if (this->vec.size() <= 1)
+		throw NoNumbersNoSpan();
+
+	int	x = std::numeric_limits<int>::max();
+	std::vector<int>			tmp(this->vec);
+	std::vector<int>::iterator	it = tmp.begin();
+	std::vector<int>::iterator	last = tmp.end();
+
+	//after sort array
+	std::sort(it, last);
+
+	for (std::vector<int>::iterator i = tmp.begin() + 1; i != tmp.end(); i++)
+	{
+		if ((*i - *it) < x)
+			x = *i - *it;
+		it++;
+	}
+	return (x);
+}
+
+void	Span::addNumberFromRange(std::vector<int>::iterator first, std::vector<int>::iterator last)
+{
+	//std::cout << "Teste: " << std::distance(first, last) << std::endl;
+	while (first != last)
+	{
+		try {
+			this->addNumber(*first);
+		} catch(std::exception& e) {
+			std::cout << "Exception: " << e.what() << std::endl;
+			return ;
+		}
+		first++;
+	}
 }
 
 // ==========Getter==========
@@ -88,5 +137,10 @@ const std::vector<int>&	Span::getVec() const
 
 const char*	Span::LimitOfElementsReached::what() const throw()
 {
-	return ("Vector is full\n");
+	return ("\033[31mVector is full\033[0m\n");
+}
+
+const char*	Span::NoNumbersNoSpan::what() const throw()
+{
+	return ("\033[31mTry to find Span, but there are no numbers or no Span.\033[0m\n");
 }

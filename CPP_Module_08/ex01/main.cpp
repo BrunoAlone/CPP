@@ -6,41 +6,80 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:57:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/03/28 16:38:04 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:03:47 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstdlib>
+#include <unistd.h>
 #include "Span.hpp"
 
-void	addToVector(Span& TEST, int x)
+void	bigTest()
 {
+	Span	sp(10000);
+
+	std::srand(time(NULL));
+	for (int i = 0; i < 10001; i++)
+	{
+		try{
+			sp.addNumber(std::rand() % 100);
+		} catch(std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
+	//sp.printVector();
+}
+
+void	testingAddNumber()
+{
+	Span				sp(11000);
+	std::vector<int>	test;
+
+	std::srand(time(NULL));
+	for (int i = 0; i < 11000; i++)
+		test.push_back(std::rand() % 11000);
+
+	sp.addNumberFromRange(test.begin(), test.end());
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
+	//sp.printVector();
+}
+
+void	TestEmptyVector()
+{
+	Span	sp;
+
 	try {
-		TEST.addNumber(x);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 	} catch(std::exception& e) {
-		std::cout << "Exception: " << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 
 int	main()
 {
-	Span	TEST(3);
+	Span sp = Span(5);
 
-	addToVector(TEST, 2);
-	addToVector(TEST, 3);
-	addToVector(TEST, 4);
-	addToVector(TEST, 5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
 
-	TEST.printVector();
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 
-	Span	TEST_Copy(TEST);
-
-	TEST_Copy.printVector();
-
-	Span	TEST_OPERATOR_ASSIGNMENT;
-
-	TEST_OPERATOR_ASSIGNMENT = TEST;
-
-	TEST_OPERATOR_ASSIGNMENT.printVector();
-	return (0);
+	sp.printVector();
+	bigTest();
+	testingAddNumber();
+	TestEmptyVector();
+	return 0;
 }
