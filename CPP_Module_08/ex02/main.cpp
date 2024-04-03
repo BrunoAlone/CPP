@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 12:02:56 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/02 16:15:11 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:09:50 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,22 @@
 
 void	newTest(MutantStack<int, std::list<int> > ms)
 {
-	while (!ms.empty())
+	std::cout << "\n\n==========Some other tests==========\n\n";
+	while (ms.empty() == false)
 	{
 		std::cout << "[ " << ms.top() << " ]";
 		ms.pop();
 	}
-	std::cout << std::endl;
+	std::cout << std::endl << std::endl;
 }
 
 void	testWithVector()
 {
+	std::cout << "\n\n==========Using Vector==========\n\n";
 	std::vector<int>	vec;
 
 	vec.push_back(5);
-	vec.push_back(5);
+	vec.push_back(17);
 
 	std::cout << vec[vec.size() - 1] << std::endl;
 
@@ -58,10 +60,10 @@ void	testWithVector()
 int	main()
 {
 	MutantStack<int, std::list<int> >	ms; // Here, we are not using the default
-	// type of container int he stack, we are using list container
-
+	// type of container in the stack, we are using list container
+	std::cout << "==========Using MutantSatck with list conatiner==========\n\n";
 	ms.push(5);
-	ms.push(5);
+	ms.push(17);
 
 	std::cout << ms.top() << std::endl;
 
