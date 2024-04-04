@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:40:37 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/01 17:07:42 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:44:45 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ Span&	Span::operator=(const Span& other)
 	if (this == &other)
 		return (*this);
 	this->N_ = other.getN();
-	for (std::vector<int>::const_iterator it = other.getVec().begin(); it != other.getVec().end(); it++)
-		this->addNumber(*it);
+	// for (std::vector<int>::const_iterator it = other.getVec().begin(); it != other.getVec().end(); it++)
+	// 	this->addNumber(*it);
+	this->vec.resize(other.getVec().size());
+	std::copy(other.getVec().begin(), other.getVec().end(), this->vec.begin());
 	return (*this);
 }
 

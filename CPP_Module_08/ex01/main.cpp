@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:57:12 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/01 17:03:47 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/04 10:39:34 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,23 @@ void	TestEmptyVector()
 	}
 }
 
+void	TestCopyAssignment()
+{
+	std::cout << "\n\n==========Test Copy assignment==========\n\n";
+	Span	sp = Span(5);
+
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+
+	Span	test;
+
+	test = sp;
+	test.printVector();
+}
+
 int	main()
 {
 	Span sp = Span(5);
@@ -81,5 +98,6 @@ int	main()
 	bigTest();
 	testingAddNumber();
 	TestEmptyVector();
+	TestCopyAssignment();
 	return 0;
 }
