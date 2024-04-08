@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:29:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/05 17:21:12 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/08 14:18:41 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,24 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <sstream>
+#include <cstdlib>
 
 #include <map>
 
 class	BTC
 {
 	private:
-		std::map<std::string, double>	RequestedData_;
-		std::ifstream			RequestFile_;
+		std::ifstream					RequestFile_;
+		std::string						FileName_;
 
-		std::string				FileName_;
+		std::ifstream					DataBaseFile_;
 
-		void					buildRequestData();
+		std::map<std::string, double>	DataBase_;
+		std::map<std::string, double>::iterator	it;
+
+		void	extractDataBase();
+		void	performExchange();
 	public:
 		// Orthodox
 		BTC();
