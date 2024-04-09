@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:44:54 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/09 12:39:31 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/09 13:47:00 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	BTC::extractDataBase()
 void	BTC::performExchange()
 {
 	std::string	line;
+	std::string	originalLine;
 	bool		firstLine = true;
 
 	while (std::getline(this->RequestFile_, line))
@@ -82,6 +83,7 @@ void	BTC::performExchange()
 			firstLine = false;
 			continue;
 		}
+		originalLine = line;
 		for (std::string::iterator i = line.begin(); i != line.end(); i++)
 		{
 			if (*i == ' ')
@@ -90,7 +92,10 @@ void	BTC::performExchange()
 		// Verify date
 
 		if (checkLine(line) == false)
+		{
+			std::cout << "Error: bad input => " << originalLine << std::endl;
 			continue;
+		}
 
 		std::istringstream	iss(line);
 		std::string			date;
@@ -136,17 +141,13 @@ bool	BTC::checkLine(const std::string& line) const
 
 	if (!(std::getline(iss, date, '|')) || !(std::getline(iss, coins)))
 	{
-		std::cout << "Error: bad input => " << line << std::endl;
-		std::cout << "Teste: <" << date << "> <" << coins << ">\n";
+		//std::cout << "Error: bad input => " << line << std::endl;
+		//std::cout << "Teste: <" << date << "> <" << coins << ">\n";
 		return (false);
 	}
 
 	if (date.empty() || coins.empty())
-	{
-		std::cout << "Error: bad input => " << line << std::endl;
-		std::cout << "Teste: <" << date << "> <" << coins << ">\n";
 		return (false);
-	}
 
 	if (date.length() != 10)
 		return (false);
@@ -163,7 +164,7 @@ bool	BTC::checkLine(const std::string& line) const
 	if (isValidDate(line) == false)
 		return (false);
 
-	std::cout << "Teste: <" << date << "> <" << coins << ">\n";
+	//std::cout << "Teste: <" << date << "> <" << coins << ">\n";
 	return (true);
 }
 
@@ -180,11 +181,17 @@ bool	BTC::isValidDate(const std::string& date) const
 		31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
 	};
 
-	if (day > monthDays[month - 1])
+	if (month == 2)
 	{
-		std::cout << "Wrong!!!\n";
-		return (false);
+		if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))
+		{
+			if (day >= 0 && day <= 29)
+				return (true);
+		}
 	}
+
+	if (day > monthDays[month - 1])
+		return (false);
 	return (true);
 }
 
