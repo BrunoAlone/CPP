@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:44:54 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/08 15:27:12 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/09 12:39:31 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,11 @@ void	BTC::performExchange()
 			if (*i == ' ')
 				line.erase(i);
 		}
+		// Verify date
+
+		if (checkLine(line) == false)
+			continue;
+
 		std::istringstream	iss(line);
 		std::string			date;
 		std::string			coins_number;
@@ -95,7 +100,7 @@ void	BTC::performExchange()
 		{
 			if (std::strtod(coins_number.c_str(), NULL) < 0)
 				std::cout << "Error: not a positive number.\n";
-			if (std::strtod(coins_number.c_str(), NULL) > 1000)
+			else if (std::strtod(coins_number.c_str(), NULL) > 1000)
 				std::cout << "Error: too large a number\n";
 			else
 			{
@@ -123,6 +128,67 @@ void	BTC::performExchange()
 		}
 	}
 }
+
+bool	BTC::checkLine(const std::string& line) const
+{
+	std::istringstream	iss(line);
+	std::string			date, coins;
+
+	if (!(std::getline(iss, date, '|')) || !(std::getline(iss, coins)))
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		std::cout << "Teste: <" << date << "> <" << coins << ">\n";
+		return (false);
+	}
+
+	if (date.empty() || coins.empty())
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		std::cout << "Teste: <" << date << "> <" << coins << ">\n";
+		return (false);
+	}
+
+	if (date.length() != 10)
+		return (false);
+
+	if (date[4] != '-' || date[7] != '-')
+		return (false);
+
+	for (int i = 0; i < 10; i++)
+	{
+		if (i != 4 && i != 7 && !isdigit(date[i]))
+			return (false);
+	}
+
+	if (isValidDate(line) == false)
+		return (false);
+
+	std::cout << "Teste: <" << date << "> <" << coins << ">\n";
+	return (true);
+}
+
+bool	BTC::isValidDate(const std::string& date) const
+{
+	std::istringstream	iss(date);
+	int	year, month, day;
+	char	dash1, dash2;
+
+	if (!(iss >> year >> dash1 >> month >> dash2 >> day) || dash1 != '-' || dash2 != '-')
+		return (false);
+
+	int		monthDays[] = {
+		31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+	};
+
+	if (day > monthDays[month - 1])
+	{
+		std::cout << "Wrong!!!\n";
+		return (false);
+	}
+	return (true);
+}
+
+// ===============Exceptions===============
 
 const char*	BTC::FailingOpenTheFile::what() const throw()
 {

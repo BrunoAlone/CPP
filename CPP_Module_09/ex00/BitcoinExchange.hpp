@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:29:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/08 14:18:41 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/09 12:21:33 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ class	BTC
 
 		void	extractDataBase();
 		void	performExchange();
+		bool	checkLine(const std::string& line) const;
+		bool	isValidDate(const std::string& date) const;
 	public:
 		// Orthodox
 		BTC();
