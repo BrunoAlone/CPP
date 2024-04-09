@@ -5,32 +5,31 @@
 #                                                     +:+ +:+         +:+      #
 #    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/04/05 14:25:45 by brolivei          #+#    #+#              #
-#    Updated: 2024/04/05 14:29:23 by brolivei         ###   ########.fr        #
+#    Created: 2024/04/09 13:53:10 by brolivei          #+#    #+#              #
+#    Updated: 2024/04/09 13:56:23 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=c++
 CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-BTC = btc
+RPN = RPN
 
-SRCS_BTC = main.cpp BitcoinExchange.cpp
+SRCS_RPN = main.cpp RPN.cpp
 
-OBJS_BTC = $(SRCS_BTC:%.cpp=%.o)
+OBJS_RPN = $(SRCS_RPN:%.cpp=%.o)
 
-all: $(BTC)
+all: $(RPN)
 
-$(BTC): $(OBJS_BTC)
-			$(CC) $(CCFLAGS) $(OBJS_BTC) -o $(BTC) -lstdc++
+$(RPN): $(OBJS_RPN)
+			$(CC) $(CCFLAGS) $(OBJS_RPN) -o $(RPN) -lstdc++
 
 %.o: %.cpp
 			$(CC) $(CCFLAGS) -c $< -o $@
 
 clean:
-			rm -rf $(OBJS_BTC)
+			rm -rf $(OBJS_RPN)
 
 fclean: clean
-			rm -rf $(BTC)
-
+			rm -rf $(RPN)
 re: fclean all
