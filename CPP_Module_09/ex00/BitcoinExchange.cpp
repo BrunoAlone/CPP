@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:44:54 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/09 13:47:00 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/09 14:38:50 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ BTC::BTC(const BTC& other)
 	std::cout << "Copy\n";
 
 	this->FileName_ = other.FileName_;
+}
+
+BTC&	BTC::operator=(const BTC& other)
+{
+	(void)other;
+	return (*this);
 }
 
 BTC::~BTC()
