@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:40:48 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/11 16:02:27 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/12 17:49:57 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	PmergeMe::mergeSortVec(std::vector<int>& vec, int const begin, int const en
 		return ;
 
 	int	mid = begin + (end - begin) / 2;
+	//std::cout << "Teste: " << mid << std::endl;
 	mergeSortVec(vec, begin, mid);
 	mergeSortVec(vec, mid + 1, end);
 	mergeVec(vec, begin, mid, end);
@@ -70,11 +71,23 @@ void	PmergeMe::mergeVec(std::vector<int>& vec, int const left, int const mid, in
 
 	std::vector<int>	leftVec(subVecOne);
 	std::vector<int>	rightVec(subVecTwo);
+	// For teste
+	//std::vector<int>::iterator	it;
 
 	for (int i = 0; i < subVecOne; i++)
 		leftVec[i] = vec[left + i];
+	// Teste:
+	//std::cout << "LeftVec: ";
+	//for (it = leftVec.begin(); it != leftVec.end(); it++)
+	//	std::cout << " " << *it;
+	//std::cout << std::endl;
 	for (int j = 0; j < subVecTwo; j++)
 		rightVec[j] = vec[mid + 1 + j];
+	// teste
+	//std::cout << "RightVec: ";
+	//for (it = rightVec.begin(); it != rightVec.end(); it++)
+	//	std::cout << " " << *it;
+	//std::cout << std::endl;
 
 	int	indexOfSubVecOne = 0;
 	int	indexOfSubVecTwo = 0;

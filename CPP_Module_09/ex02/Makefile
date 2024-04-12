@@ -6,12 +6,11 @@
 #    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/10 16:33:01 by brolivei          #+#    #+#              #
-#    Updated: 2024/04/12 16:42:32 by brolivei         ###   ########.fr        #
+#    Updated: 2024/04/12 16:42:41 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=c++
-CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 PMERGEME = PmergeMe
