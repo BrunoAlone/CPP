@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:29:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/12 14:22:38 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:39:35 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ class	BTC
 		// Orthodox
 		BTC();
 		BTC(const BTC& other);
+		BTC&	operator=(const BTC& other);
 		BTC&	operator=(const BTC& other);
 		~BTC();
 
