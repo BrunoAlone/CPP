@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:20:56 by bruno             #+#    #+#             */
-/*   Updated: 2024/03/28 14:14:06 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:08:18 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ template <typename T> int	easyfind(T C, int x)
 	// The same has sayng: std::vector<int>::iterator; For example
 	typename T::iterator	it;
 
-	// find return the C.end() i fthe element "x" is not found.
-	it = find(C.begin(), C.end(), x);
+	// find return the C.end() if the element "x" is not found.
+	it = std::find(C.begin(), C.end(), x);
 
 	if (it != C.end())
 	{
@@ -78,6 +78,7 @@ template <typename T> int	easyfind(T C, int x)
 		// 	return (0);
 		// }
 	//}
+	//std::cout << "Test: " << *it << std::endl;
 	return (std::cout << "Occurrence of: " << x << " not found\n", 1);
 }
 

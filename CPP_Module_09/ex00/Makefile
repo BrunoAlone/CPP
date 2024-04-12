@@ -6,14 +6,14 @@
 #    By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/05 14:25:45 by brolivei          #+#    #+#              #
-#    Updated: 2024/04/05 14:29:23 by brolivei         ###   ########.fr        #
+#    Updated: 2024/04/12 14:15:12 by brolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=c++
 CCFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-BTC = btc
+BTC = BTC
 
 SRCS_BTC = main.cpp BitcoinExchange.cpp
 

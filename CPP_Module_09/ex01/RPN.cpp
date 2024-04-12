@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 14:23:27 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/10 14:44:35 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/12 15:07:08 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	RPN::ReversePolishNotation()
 				this->exp.push(atoi(token.c_str()));
 			else if (isOperand(token))
 			{
+				if (this->exp.size() < 2)
+					throw InputError();
 				int	op2 = this->exp.top();
 				this->exp.pop();
 				int	op1 = this->exp.top();
@@ -85,22 +87,22 @@ void	RPN::ReversePolishNotation()
 
 				if (token == "+")
 				{
-					std::cout << op1 << " + " << op2 << " = " << op1 + op2 <<std::endl;
+					//std::cout << op1 << " + " << op2 << " = " << op1 + op2 <<std::endl;
 					this->exp.push(op1 + op2);
 				}
 				else if (token == "-")
 				{
-					std::cout << op1 << " - " << op2 << " = " << op1 - op2 <<std::endl;
+					//std::cout << op1 << " - " << op2 << " = " << op1 - op2 <<std::endl;
 					this->exp.push(op1 - op2);
 				}
 				else if (token == "*")
 				{
-					std::cout << op1 << " x " << op2 << " = " << op1 * op2 <<std::endl;
+					//std::cout << op1 << " x " << op2 << " = " << op1 * op2 <<std::endl;
 					this->exp.push(op1 * op2);
 				}
 				else if (token == "/")
 				{
-					std::cout << op1 << " / " << op2 << " = " << op1 / op2 <<std::endl;
+					//std::cout << op1 << " / " << op2 << " = " << op1 / op2 <<std::endl;
 					this->exp.push(op1 / op2);
 				}
 				else

@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 14:29:46 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/09 12:21:33 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:22:38 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,24 @@ class	BTC
 		// Orthodox
 		BTC();
 		BTC(const BTC& other);
-		//BTC&	operator=(const BTC& other);
+		BTC&	operator=(const BTC& other);
 		~BTC();
 
 		// Special contructors
 		BTC(const std::string FileName);
 
+		// Public method
 
-		class	FailingOpenTheFile : std::exception
+		void	performTask(std::string& FileName);
+
+
+		class	FailingOpenTheFile : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class	EmptyFile : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

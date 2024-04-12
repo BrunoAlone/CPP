@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:44:54 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/09 13:47:00 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:23:45 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,34 @@ BTC::BTC(const BTC& other)
 	this->FileName_ = other.FileName_;
 }
 
+BTC&	BTC::operator=(const BTC& other)
+{
+	if (this == &other)
+		return (*this);
+	this->FileName_ = other.FileName_;
+	this->DataBase_ = other.DataBase_;
+	return (*this);
+}
+
 BTC::~BTC()
 {
 	std::cout << "Destructor\n";
 
 	this->RequestFile_.close();
+	this->DataBaseFile_.close();
 }
 
 BTC::BTC(const std::string FileName)
+{
+	this->FileName_ = FileName;
+	this->RequestFile_.open(FileName.c_str());
+	if (!RequestFile_.is_open())
+		throw FailingOpenTheFile();
+	extractDataBase();
+	performExchange();
+}
+
+void	BTC::performTask(std::string& FileName)
 {
 	this->FileName_ = FileName;
 	this->RequestFile_.open(FileName.c_str());
@@ -53,6 +73,8 @@ void	BTC::extractDataBase()
 
 	while (std::getline(DataBaseFile_, line))
 	{
+		// Read from a string
+		// We can use operator >> in iss, to extract values, like in std::cin
 		std::istringstream	iss(line);
 		std::string			Date, Exchange;
 
@@ -64,7 +86,6 @@ void	BTC::extractDataBase()
 				std::cout << e.what() << std::endl;
 			}
 		}
-
 	}
 }
 
@@ -76,6 +97,8 @@ void	BTC::performExchange()
 	std::string	originalLine;
 	bool		firstLine = true;
 
+	if (this->RequestFile_.peek() == EOF)
+		throw EmptyFile();
 	while (std::getline(this->RequestFile_, line))
 	{
 		if (firstLine)
@@ -91,7 +114,7 @@ void	BTC::performExchange()
 		}
 		// Verify date
 
-		if (checkLine(line) == false)
+		if (checkLine(line) == false || originalLine[10] != ' ' || originalLine[12] != ' ')
 		{
 			std::cout << "Error: bad input => " << originalLine << std::endl;
 			continue;
@@ -139,12 +162,8 @@ bool	BTC::checkLine(const std::string& line) const
 	std::istringstream	iss(line);
 	std::string			date, coins;
 
-	if (!(std::getline(iss, date, '|')) || !(std::getline(iss, coins)))
-	{
-		//std::cout << "Error: bad input => " << line << std::endl;
-		//std::cout << "Teste: <" << date << "> <" << coins << ">\n";
+	if (!(std::getline(iss, date, '|')) || !(std::getline(iss, coins))) // If getline fails, this will be true
 		return (false);
-	}
 
 	if (date.empty() || coins.empty())
 		return (false);
@@ -164,7 +183,6 @@ bool	BTC::checkLine(const std::string& line) const
 	if (isValidDate(line) == false)
 		return (false);
 
-	//std::cout << "Teste: <" << date << "> <" << coins << ">\n";
 	return (true);
 }
 
@@ -174,6 +192,9 @@ bool	BTC::isValidDate(const std::string& date) const
 	int	year, month, day;
 	char	dash1, dash2;
 
+	// When we do iss >> year, istringstream, perform verifications to see if the char passed is a digit
+	// and convert it into an int, so, he copies a sequence of number into year, until he find a character that
+	// is not a digit, and so on...
 	if (!(iss >> year >> dash1 >> month >> dash2 >> day) || dash1 != '-' || dash2 != '-')
 		return (false);
 
@@ -200,4 +221,9 @@ bool	BTC::isValidDate(const std::string& date) const
 const char*	BTC::FailingOpenTheFile::what() const throw()
 {
 	return ("ERROR: couldn't open the file\n");
+}
+
+const char* BTC::EmptyFile::what() const throw()
+{
+	return ("ERROR: empty file\n");
 }
