@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 16:40:48 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/12 17:49:57 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/15 13:46:07 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ PmergeMe::~PmergeMe()
 
 int	PmergeMe::mergeSort(char **argv, int size)
 {
-	justPrintBefore(argv, size); // This function will perfom the parse too
+	if (justPrintBefore(argv, size) == false)
+		 return (std::cerr << "Error\n", 2);
 
 	mergeSortVecStart(argv, size);
 	mergeSortDequeStart(argv, size);
@@ -41,11 +42,16 @@ void	PmergeMe::mergeSortVecStart(char **argv, int size)
 
 	mergeSortVec(vec, 0, vec.size() - 1);
 
-	std::cout << std::setw(9) << std::left << "After(Vec): ";
+	//std::cout << std::setw(9) << std::left << "After(Vec): ";
+	//std::cout << std::setw(9) << std::left << "After: ";
+	//for (it = vec.begin(); it != vec.end(); it++)
+	//	std::cout << " " << *it;
+	//std::cout << std::endl;
+	this->end = clock();
+	std::cout << std::setw(9) << std::left << "After: ";
 	for (it = vec.begin(); it != vec.end(); it++)
 		std::cout << " " << *it;
 	std::cout << std::endl;
-	this->end = clock();
 	this->timeSpendVec = (double(this->end - this->start) / CLOCKS_PER_SEC) * 1000000;
 	std::cout << "Time to process a range of " << vec.size();
 	std::cout << " elements with std::vector<int> : " << this->timeSpendVec;
@@ -137,12 +143,12 @@ void	PmergeMe::mergeSortDequeStart(char **argv, int size)
 
 	mergeSortDeque(deque, 0, deque.size() - 1);
 
-	std::cout << std::setw(9) << std::left << "After(deque): ";
-	for (it = deque.begin(); it != deque.end(); it++)
-		std::cout << " " << *it;
-	std::cout << std::endl;
+	//std::cout << std::setw(9) << std::left << "After(deque): ";
+	//for (it = deque.begin(); it != deque.end(); it++)
+	//	std::cout << " " << *it;
+	//std::cout << std::endl;
 	this->end = clock();
-	this->timeSpendList = ((double(this->end - this->start) / CLOCKS_PER_SEC) * 1000000) - this->timeSpendVec;
+	this->timeSpendList = ((double(this->end - this->start) / CLOCKS_PER_SEC) * 1000000);
 	std::cout << "Time to process a range of " << deque.size();
 	std::cout << " elements with std::deque<int> : " << this->timeSpendList;
 	std::cout << " microseconds" << std::endl;
@@ -207,15 +213,25 @@ void	PmergeMe::mergeDeque(std::deque<int>& deque, int const left, int const mid,
 }
 
 
-void	PmergeMe::justPrintBefore(char **argv, int size)
+bool	PmergeMe::justPrintBefore(char **argv, int size)
 {
 	std::vector<int>			vec;
 	std::vector<int>::iterator	it;
 
 	for (int i = 1; i < size; i++)
+		if (!isdigit(*argv[i]))
+			return (false);
+
+	for (int i = 1; i < size; i++)
 		vec.push_back(atoi(argv[i]));
+
+	for (it = vec.begin(); it != vec.end(); it++)
+		if (*it < 0)
+			return (false);
+
 	std::cout << std::setw(9) << std::left <<"Before:";
 	for (it = vec.begin(); it != vec.end(); it++)
 		std::cout << " " << *it;
 	std::cout << std::endl;
+	return (true);
 }
