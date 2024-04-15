@@ -6,7 +6,7 @@
 /*   By: brolivei <brolivei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 16:44:54 by brolivei          #+#    #+#             */
-/*   Updated: 2024/04/12 16:36:34 by brolivei         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:23:55 by brolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 BTC::BTC()
 {
-	std::cout << "Default\n";
+	//std::cout << "Default\n";
 }
 
 BTC::BTC(const BTC& other)
 {
-	std::cout << "Copy\n";
+	//std::cout << "Copy\n";
 
 	this->FileName_ = other.FileName_;
 }
@@ -35,7 +35,7 @@ BTC&	BTC::operator=(const BTC& other)
 
 BTC::~BTC()
 {
-	std::cout << "Destructor\n";
+	//std::cout << "Destructor\n";
 
 	this->RequestFile_.close();
 	this->DataBaseFile_.close();
@@ -78,14 +78,8 @@ void	BTC::extractDataBase()
 		std::istringstream	iss(line);
 		std::string			Date, Exchange;
 
-		if (std::getline(iss, Date, ',') && std::getline(iss, Exchange, ','))
-		{
-			try {
-				this->DataBase_[Date] = std::strtod(Exchange.c_str(), NULL);
-			} catch(std::exception& e) {
-				std::cout << e.what() << std::endl;
-			}
-		}
+		if (std::getline(iss, Date, ',') && std::getline(iss, Exchange))
+			this->DataBase_[Date] = std::strtod(Exchange.c_str(), NULL);
 	}
 }
 
@@ -94,7 +88,7 @@ void	BTC::extractDataBase()
 void	BTC::performExchange()
 {
 	std::string	line;
-	std::string	originalLine;
+	std::string	originalLine; // To verify if the spaces in input.txt are there and print the original line
 	bool		firstLine = true;
 
 	if (this->RequestFile_.peek() == EOF)
@@ -124,7 +118,7 @@ void	BTC::performExchange()
 		std::string			date;
 		std::string			coins_number;
 
-		if (std::getline(iss, date, '|') && std::getline(iss, coins_number, '|'))
+		if (std::getline(iss, date, '|') && std::getline(iss, coins_number))
 		{
 			if (std::strtod(coins_number.c_str(), NULL) < 0)
 				std::cout << "Error: not a positive number.\n";
@@ -195,7 +189,7 @@ bool	BTC::isValidDate(const std::string& date) const
 	// When we do iss >> year, istringstream, perform verifications to see if the char passed is a digit
 	// and convert it into an int, so, he copies a sequence of number into year, until he find a character that
 	// is not a digit, and so on...
-	if (!(iss >> year >> dash1 >> month >> dash2 >> day) || dash1 != '-' || dash2 != '-')
+	if (!(iss >> year >> dash1 >> month >> dash2 >> day))
 		return (false);
 
 	int		monthDays[] = {
